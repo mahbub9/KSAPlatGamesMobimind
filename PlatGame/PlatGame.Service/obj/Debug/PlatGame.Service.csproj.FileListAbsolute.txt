@@ -1,0 +1,30 @@
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\PlatGame.Service.dll.config
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\PlatGame.Service.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\PlatGame.Service.pdb
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\ForestInterActive.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\RestSharp.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\ForestInterActive.pdb
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\ForestInterActive.xml
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\bin\Debug\RestSharp.xml
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.csprojAssemblyReference.cache
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.csproj.CoreCompileInputs.cache
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.csproj.CopyComplete
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.pdb
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\PlatGame.Service.dll.config
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\PlatGame.Service.dll
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\PlatGame.Service.pdb
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\ForestInterActive.dll
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\Newtonsoft.Json.dll
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\RestSharp.dll
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\ForestInterActive.pdb
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\ForestInterActive.xml
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\Newtonsoft.Json.xml
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\bin\Debug\RestSharp.xml
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.csprojAssemblyReference.cache
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.csproj.CoreCompileInputs.cache
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.csproj.CopyComplete
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.dll
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGame.Service\obj\Debug\PlatGame.Service.pdb

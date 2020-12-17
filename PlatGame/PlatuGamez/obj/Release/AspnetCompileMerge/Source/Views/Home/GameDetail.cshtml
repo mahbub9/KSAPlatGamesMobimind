@@ -1,0 +1,199 @@
+﻿@model ForestInterActive.GameListModel
+
+
+@*<body screen_capture_injected="true" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">*@
+
+
+
+<!-- Content -->
+@*<section class="main-banner">
+    <main id="mainBanner" class="main-banner">
+        <div class="banner-inner h-100">
+            <div class="banner-item h-100">
+                <img src="~/Goama_Games_files/banner_home.jpg" class="banner-img d-block h-100 w-auto" alt="Table Top Racing">
+                <div class="banner-caption">
+                    <header class="banner-caption-header">
+                        <h1 class="h1 text-uppercase">
+                            <br>
+                            <span class="d-block font-weight-light" style="font-family: 'Kalam', cursive;"> no ads, no waiting,</span>
+                            <span class="font-weight-bold" style="font-family: 'Kalam', cursive;">just pure play.</span>
+                        </h1>
+                        <a class="btn btn-primary btn-lg mb-4" href="#"><span class="d-block m-0">Play Now</span></a>
+                    </header>
+                </div>
+            </div>
+        </div>
+    </main>
+</section>*@
+
+<section class="featured-games overflow-hidden">
+    <main class="container">
+        <header class="featured-games-header">
+            <h1 class="featured-games-title d-flex align-items-baseline justify-content-between">
+                <span>@Model.GameTitle</span>
+                @*<a href="#" class="font-size-sm">see more</a>*@
+            </h1>
+        </header>
+        @*<div id="owlCtgCarouselOne" class="owl-carousel gm-categories owl-loaded owl-drag">
+            <div class="owl-stage-outer">
+                <div class="owl-stage" style="transform: translate3d(-1400px, 0px, 0px); transition: all 0s ease 0s; width: 5600px;">*@
+
+                   
+                        @*<div class="owl-item cloned" style="width: 270px; margin-right: 10px;">
+                            <div class="item" style="cursor: pointer;" onclick="window.location=  &#39;http://mysignup.gogames.co&#39;;">*@
+                                <div class="card text-center">
+                                    <img src="@Model.GameLogo" class="card-img-top" alt="Game logo">
+                                    <div class="card-body">
+                                        @*<h4 class="card-title text-truncate">@game.GameTitle</h4>*@
+                                        @*<h4 class="card-title text-truncate"><a href="@Url.Action("GameDetail", "Home",new { gameId=Model.GameID,categoryName=Model.CategoryName})">@Model.GameTitle</a></h4>*@
+                                        @*<a href="@Url.Action("playGame","Home",new { gameId=Model.GameID})" class="btn btn-gamespace full-width-sm pull-right visible-sm visible-md visible-lg">Play Now</a>*@
+                                        <a class="btn btn-primary btn-lg mb-4" href="@Url.Action("PlayGame","Home",new { gameId=Model.GameID})"><span class="d-block m-0">Play Now</span></a>
+                                        @*<div class="card-ratings mt-1">
+                                            <img class="img-fluid" src="~/Goama_Games_files/5_star.png" alt="">
+                                        </div>*@
+                                    </div>
+                                </div>
+                            @*</div>
+                        </div>*@
+                    
+
+                @*</div>
+            </div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div>
+        </div>*@
+    </main>
+</section>
+
+
+
+
+<!-- Types of Subscription -->
+<section class="fun-factors">
+    <main class="container">
+        <h1 class="fun-factors-title text-center">
+            <span class="font-weight-lighter d-block d-sm-inline mb-3"> GAMES SHOULD BE FUN,</span>
+            <strong class="d-block d-sm-inline"> NOT A HASSLE.</strong>
+        </h1>
+        <section class="row">
+            <div class="col-6 col-sm-3">
+                <div class="card text-center">
+                    <img class="card-img-top w-50 mx-auto my-4" src="~/Content/images/feature_unlimited_fun.png" alt="Unlimited Fun">
+                    <div class="card-body">
+                        <h4 class="h4 card-title">Unlimited Fun</h4>
+                        <p class="card-text">Hundreds of top games, curated &amp; localized experience, easy discovery</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-3">
+                <div class="card text-center">
+                    <img class="card-img-top w-50 mx-auto my-4" src="~/Content/images/feature_subscription.png" alt="Unlimited Fun">
+                    <div class="card-body">
+                        <h4 class="h4 card-title">Subscription</h4>
+                        <p class="card-text">Never pay for a game again. New games added every week. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-3">
+                <div class="card text-center">
+                    <img class="card-img-top w-50 mx-auto my-4" src="~/Content/images/feature_ads.png" alt="Unlimited Fun">
+                    <div class="card-body">
+                        <h4 class="h4 card-title">Ads Removed</h4>
+                        <p class="card-text"> Play uninterrupted with no ads or waiting times.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-3">
+                <div class="card text-center">
+                    <img class="card-img-top w-50 mx-auto my-4" src="~/Content/images/feature_app_purchase.png" alt="Unlimited Fun">
+                    <div class="card-body">
+                        <h4 class="h4 card-title">Free In-App purchases</h4>
+                        <p class="card-text"> Get coins, armour, swords and power ups. Access to all levels and all add-ons for free.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</section>
+
+<!-- Subscriptions -->
+<section class="subscription">
+    <main class="container">
+        <div class="row">
+            <aside class="col-12 col-sm-6 subscription-app text-center">
+                <img class="img-fluid" src="~/Content/images/subscription-app.png" alt="Subscription App">
+            </aside>
+            <aside class="col-12 col-sm-6">
+                <h1 class="subscription-title">
+                    <span class="font-weight-lighter ml-4 text-center text-sm-left">TRY IT.</span>
+                    <span class="font-weight-bolder ml-n3 text-center text-sm-left">YOU'LL LOVE IT.</span>
+                </h1>
+                <div class="achievement text-center text-sm-left">
+                    <img class="img-fluid" src="~/Content/images/gogames-achievements.png" alt="Goama|Games Achievements">
+                </div>
+                <h2 class="weekly text-center text-sm-left">
+                    <span class="free-days ml-n3">Unlimited gaming, all levels included</span>
+                    <span class="discounts">
+                        <strong class="font-weight-bold">RM 2/Week </strong>
+                        <em class="text-danger"><del>RM 4/Week</del></em>
+                    </span>
+                </h2>
+                <ul class="subscription-features">
+                    <li>Hundreds of top games</li>
+                    <li>Free In-App purchases</li>
+                    <li>Never pay for a game again</li>
+                    <li>New games every week</li>
+                    <li>Verified and Ad-Free</li>
+                </ul>
+
+                <a class="btn btn-primary btn-lg w-50 p-3 mb-3 mx-auto btn-start" href="#"><span class="h3">Get started</span></a>
+
+            </aside>
+        </div>
+    </main>
+</section>
+
+<!-- Scripts -->
+
+@*<script type="text/javascript" src="~/js/owl.carousel.min.js"></script>*@
+
+<script type="text/javascript" src="~/js/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+
+        $(document).on("click", "#barMenuKey", function (e) {
+            $._isMenuVisible = (e.which === 1) ?
+                toggleMenu(true) : false;
+            // Stop bubbling;
+            return false;
+        });
+
+        $(document).on("click keydown", function (e) {
+            $._isMenuVisible = ($._isMenuVisible === true) ?
+                (e.key === "Escape" || e.which === 1) ?
+                    toggleMenu(false) : true
+                : false;
+        });
+
+        function toggleMenu(_visibility) {
+            // Initialization
+            _visibility = _visibility || false;
+            // On/Off Dropdown;
+            $("#barDropDown").fadeToggle('fast');
+            // Change bar icon;
+            $("#barMenuKey")
+                .find('i.fas')
+                .toggleClass('fa-times');
+            // On/Off backdrop overlay;
+            $('body').toggleClass('dropdown-overlay');
+            // return Dropdown visibility state;
+            return _visibility;
+        }
+    });
+
+    $(document).on('change', '#locale', function () {
+        window.location.href = $(this).val();
+    });
+
+</script>

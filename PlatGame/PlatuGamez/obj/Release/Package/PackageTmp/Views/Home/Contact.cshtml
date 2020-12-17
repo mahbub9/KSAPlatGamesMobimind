@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    ViewBag.Banner = "banner_contact.jpg";
+    ViewBag.Title1 = "GET IN TOUCH";
+}
+<!-- Contact -->
+<section class="contact">
+    <main class="container">
+        <header class="contact-header text-center">
+            <h1 class="h1 text-primary text-uppercase font-weight-bold mb-4">Hello!</h1>
+            <h4 class="h4 w-75 mx-auto">We want to hear from you!  Whether you need help getting started or have a specific question about Goama|Games please let us know</h4>
+        </header>
+        <div class="contact-body row">
+            <div class="col-sm-2">
+                <!-- Empty Div -->
+            </div>
+            <div class="col-sm-8">
+                <form action="#" method="POST" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group col-sm">
+                            <input type="text" name="name" id="fName" class="form-control" placeholder="First Name">
+                        </div>
+                        <div class="form-group col-sm">
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" id="msg" cols="30" rows="6" class="form-control" placeholder="Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block w-50 mx-auto">Submit</button>
+                </form>
+            </div>
+
+            <div class="col-sm-2">
+                <!-- Empty Div -->
+            </div>
+
+        </div>
+    </main>
+</section>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+
+
+
+            $(document).on("click", "#barMenuKey", function (e) {
+                $._isMenuVisible = (e.which === 1) ?
+                    toggleMenu(true) : false;
+                // Stop bubbling;
+                return false;
+            });
+
+            $(document).on("click keydown", function (e) {
+                $._isMenuVisible = ($._isMenuVisible === true) ?
+                    (e.key === "Escape" || e.which === 1) ?
+                        toggleMenu(false) : true
+                    : false;
+            });
+
+            function toggleMenu(_visibility) {
+                // Initialization
+                _visibility = _visibility || false;
+                // On/Off Dropdown;
+                $("#barDropDown").fadeToggle('fast');
+                // Change bar icon;
+                $("#barMenuKey")
+                    .find('i.fas')
+                    .toggleClass('fa-times');
+                // On/Off backdrop overlay;
+                $('body').toggleClass('dropdown-overlay');
+                // return Dropdown visibility state;
+                return _visibility;
+            }
+        });
+
+        $(document).on('change', '#locale', function () {
+            window.location.href = $(this).val();
+        });
+
+</script>

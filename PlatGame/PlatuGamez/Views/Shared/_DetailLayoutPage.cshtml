@@ -1,0 +1,186 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#141619">
+    <title>Game Space</title>
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/favicon-16x16.png">
+    <link rel="manifest" href="~/img/manifest.json">
+    <link rel="mask-icon" href="~/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="~/img/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- CORE CSS -->
+    <link href="~/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/theme.min.css" rel="stylesheet">
+    <link href="~/css/custom.css" rel="stylesheet">
+    <link href="~/css/helpers.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+    <!-- PLUGINS -->
+    <link href="~/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="~/plugins/animate/animate.min.css" rel="stylesheet">
+    <link href="~/plugins/animate/animate.delay.css" rel="stylesheet">
+    <link href="~/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+</head>
+<body class="fixed-header">
+    <!-- Header / Logo & Search Button -->
+    <header>
+        <div class="container">
+            <a href="@Url.Action("Index","Home")" class="logo"><img src="http://gamespaceindia-92f3.kxcdn.com/img/logo-gamespace.png" alt=""></a>
+        </div>
+    </header>
+    <div class="topcorner">
+        <a href="#" data-toggle="search-box-modal"><i class="fa fa-search"></i></a>
+    </div>
+    <!-- Header / Logo & Search Button End -->
+    <!-- wrapper -->
+    <div id="wrapper" class="bg-grey-100">
+        <!-- Header Banner -->
+        <section class="hero hero-games height-400 bg-grey-50 @ViewBag.CssClass ">
+            <div class="container no-padding">
+                <div class="page-header no-margin-bottom">
+                    <img class="bg-icon" src="http://gamespaceindia-92f3.kxcdn.com/img/cover/icon-2.png">
+
+                </div>
+                <!-- Subscribe & Login Box -->
+                <div class="page-header login-box">
+                    <p>Subscribe to Unlimited Access to Gamespace for <font size="3"><b>&pound;4.50</font> </b>per week until you text STOP to 65065</p>
+                    <div class=" col-lg-6 col-lg-offset-3 col-xs-12 col-sm-12">
+                        @if (User.Identity.IsAuthenticated == false)
+                        {
+                            <a href="@Url.Action("Subscribe", "Home")" class="btn btn-subscribe col-xs-6" style="width: 48%;">Subscribe</a>
+                            <a data-toggle="modal" data-target="#myModal" class="btn btn-login col-xs-6" style="width: 48%;">Login</a>
+                            <!-- <br /> <div style="background-color:white">testing ip: @Request.UserHostAddress</div>-->
+                        }
+                    </div>
+
+                </div>
+                <!-- Subscribe & Login Box End -->
+            </div>
+        </section>
+        <!-- Header Banner End -->
+        <!-- Search Box Section -->
+        <section class="bg-purple search-box-modal">
+            <div class="container">
+                <div class="search-box">
+                    @using (Html.BeginForm("SearchResult", "Home"))
+                    {
+                        <div class="input-group">
+                            <input type="text" name="gameTitle" class="form-control input-search " placeholder="Search Your Favorite Game">
+                            <span class="input-group-btn">
+                                <button class="btn btn-search" type="submit"><i class="fa fa-search no-margin"></i></button>
+                            </span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+        <!-- Search Box Section End -->
+        <!-- ////// Content Section ////// -->
+        @RenderBody()
+        <!-- ////// Content Section End ////// -->
+        <!-- Footer Menu  -->
+        <section class="padding-top-30 no-padding-bottom padding-top-20 border-top-1 border-grey-300 bg-grey-50">
+            <div class="container">
+                <div class="footer-menu">
+                    <h4><a href="@Url.Action("Tnc","Home")">T&C</a> | <a href="@Url.Action("Faq","Home")">FAQ</a></h4>
+                </div>
+            </div>
+        </section>
+        <!-- Footer Menu End-->
+    </div>
+    <!-- /#wrapper -->
+    <!-- ////// Modal Section ////// -->
+    <!-- UnSubscribe Modal  -->
+    <div class="modal fade bs-modal-sm" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header no-padding-bottom" style="background-image:url(http://gamespaceindia-92f3.kxcdn.com/img/cover/cover-underconstruction.jpg); background-size: cover; border-top-right-radius: 10px; border-top-left-radius: 10px;">
+                    <img class="bg-icon" src="http://gamespaceindia-92f3.kxcdn.com/img/cover/icon-4.png">
+                </div>
+                <div class="modal-body text-center">
+                    Are you sure you want to unsubscribe from Game Space?
+                </div>
+                <div class="modal-footer text-center ">
+                    <button type="button" class="btn btn-subscribe col-xs-5 col-xs-offset-1" data-dismiss="modal">No</button>
+                    <a href="@Url.Action("UnsubscribeSuccess","Home")" class="btn btn-login col-xs-5 col-xs-offset-1">Yes</a>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Phone Number</h4>
+                </div>
+                <div class="modal-body">
+
+                    <label>Please Insert your Phone Number</label>
+
+                    <input type="text" id="txtphotnnumber" class="form-control" />
+
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" id="btnclosepopPhone" onclick="return btnokclick()" href="@Url.Action("Subscribe", "Home", new { login = true })">Ok</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- UnSubscribe Modal end -->
+    <!-- ////// Modal Section ////// -->
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-bottom">
+            <div class="container">
+                Copyright © @DateTime.Now.Year Gamespasce.co <br>All Rights Reserved.
+                <p class="copyright"></p>
+                @if (User.Identity.IsAuthenticated == true)
+                {
+                    <p>To Unsubscribe, Please click <a href="#" data-toggle="modal" data-target=".bs-modal-sm">here</a></p>
+                }
+            </div>
+        </div>
+    </footer>
+    <a href="#top" class="toTop"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+    <!-- Footer Section End -->
+    <!-- Javascript -->
+    <script src="~/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/plugins/core.js"></script>
+    <script src="~/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/plugins/easypiechart/jquery.easypiechart.min.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+    <script>
+        function btnokclick()
+        {
+            var regex = new RegExp("^[0-9]*$");
+            if (!regex.test($('#btnclosepopPhone').val())) {
+                $('#txtphotnnumber').addClass("errorClass")
+                return false;
+            } else {
+                var href = $('#btnclosepopPhone').attr('href');
+                href += "&msisdn=" + $('#txtphotnnumber').val();
+                $('#btnclosepopPhone').attr('href', href);
+                return true;
+            }
+
+        }
+    </script>
+</body>
+</html>

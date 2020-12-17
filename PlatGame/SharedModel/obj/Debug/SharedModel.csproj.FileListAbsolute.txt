@@ -1,0 +1,11 @@
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\SharedModel\bin\Debug\SharedModel.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\SharedModel\bin\Debug\SharedModel.pdb
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\SharedModel\obj\Debug\SharedModel.csprojAssemblyReference.cache
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\SharedModel\obj\Debug\SharedModel.csproj.CoreCompileInputs.cache
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\SharedModel\obj\Debug\SharedModel.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\SharedModel\obj\Debug\SharedModel.pdb
+D:\zForest\KSAPlatGamesMobimind\PlatGame\SharedModel\bin\Debug\SharedModel.dll
+D:\zForest\KSAPlatGamesMobimind\PlatGame\SharedModel\bin\Debug\SharedModel.pdb
+D:\zForest\KSAPlatGamesMobimind\PlatGame\SharedModel\obj\Debug\SharedModel.csproj.CoreCompileInputs.cache
+D:\zForest\KSAPlatGamesMobimind\PlatGame\SharedModel\obj\Debug\SharedModel.dll
+D:\zForest\KSAPlatGamesMobimind\PlatGame\SharedModel\obj\Debug\SharedModel.pdb

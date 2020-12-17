@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Billing">
+    <Key>
+      <PropertyRef Name="BillingID" />
+    </Key>
+    <Property Name="BillingID" Type="Guid" Nullable="false" />
+    <Property Name="StatusID" Type="Guid" Nullable="false" />
+    <Property Name="TransactionID" Type="Guid" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SubscriberID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="StatusMsg" Relationship="Self.FK_billing_status" FromRole="Billing" ToRole="StatusMsg" />
+    <NavigationProperty Name="Subscription" Relationship="Self.FK_billing_SubID" FromRole="Billing" ToRole="Subscription" />
+    <NavigationProperty Name="Transaction" Relationship="Self.FK_billing_transction" FromRole="Billing" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="Conversion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Txid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShortCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="DnSummaryReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dn_total" Type="Int32" />
+    <Property Name="dn_first_subscribe" Type="Int32" />
+    <Property Name="dn_first_success_bill" Type="Int32" />
+    <Property Name="dn_success_renewal" Type="Int32" />
+    <Property Name="dn_failed_first_bill" Type="Int32" />
+    <Property Name="dn_unsubscribe" Type="Int32" />
+  </EntityType>
+  <EntityType Name="FireBackLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Txid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Result" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="LandingIP">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="txid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="affId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pubId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="pageid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="StatusMsg">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Billings" Relationship="Self.FK_billing_status" FromRole="StatusMsg" ToRole="Billing" />
+    <NavigationProperty Name="Transactions" Relationship="Self.FK_Status" FromRole="StatusMsg" ToRole="Transaction" />
+    <NavigationProperty Name="SubscriptionHistories" Relationship="Self.FK_SubHtry_StatusID" FromRole="StatusMsg" ToRole="SubscriptionHistory" />
+  </EntityType>
+  <EntityType Name="Subscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="TransactionID" Type="Guid" Nullable="false" />
+    <Property Name="Msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsSubscriped" Type="Boolean" Nullable="false" />
+    <Property Name="SubscriptionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UnSubscriptionDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="txid" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsFirstBillingCharged" Type="Boolean" Nullable="false" />
+    <Property Name="TelcoID" Type="Int32" />
+    <NavigationProperty Name="Billings" Relationship="Self.FK_billing_SubID" FromRole="Subscription" ToRole="Billing" />
+    <NavigationProperty Name="Transaction" Relationship="Self.FK_Sub_TransactionID" FromRole="Subscription" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="SubscriptionHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="TransactionID" Type="Guid" Nullable="false" />
+    <Property Name="Status" Type="Guid" Nullable="false" />
+    <Property Name="Msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="StatusMsg" Relationship="Self.FK_SubHtry_StatusID" FromRole="SubscriptionHistory" ToRole="StatusMsg" />
+    <NavigationProperty Name="Transaction" Relationship="Self.FK_SubHtry_TransactionID" FromRole="SubscriptionHistory" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="SubscriptionSummaryReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="dailysubscribers" Type="Int32" />
+    <Property Name="totalsubscribers" Type="Int32" />
+    <Property Name="subscribers_percentage" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="dailyunsubscribers" Type="Int32" />
+    <Property Name="totalunsubscribers" Type="Int32" />
+    <Property Name="unsubscribers_percentage" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="active_non_unique_sub" Type="Int32" />
+    <Property Name="active_unique_sub" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Telco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="TelcoId" Type="Int32" Nullable="false" />
+    <Property Name="CMTelcoId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FIShare" Type="Double" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="User" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="ChannelID" Type="Int32" Nullable="false" />
+    <Property Name="OperatorID" Type="Int32" Nullable="false" />
+    <Property Name="RequestID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MSISDN" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="STATUS" Type="Guid" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Price" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="AffId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PubId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PageId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Billings" Relationship="Self.FK_billing_transction" FromRole="Transaction" ToRole="Billing" />
+    <NavigationProperty Name="StatusMsg" Relationship="Self.FK_Status" FromRole="Transaction" ToRole="StatusMsg" />
+    <NavigationProperty Name="Subscriptions" Relationship="Self.FK_Sub_TransactionID" FromRole="Transaction" ToRole="Subscription" />
+    <NavigationProperty Name="SubscriptionHistories" Relationship="Self.FK_SubHtry_TransactionID" FromRole="Transaction" ToRole="SubscriptionHistory" />
+  </EntityType>
+  <EntityType Name="TransactionSummaryReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="campaign_unique_msisdn_visited" Type="Int32" Nullable="false" />
+    <Property Name="campaign_opt_in" Type="Int32" Nullable="false" />
+    <Property Name="campaign_opt_in_percentage" Type="Decimal" Precision="9" Scale="6" Nullable="false" />
+    <Property Name="campaign_opt_out" Type="Int32" Nullable="false" />
+    <Property Name="portal_unique_msisdn_visited" Type="Int32" Nullable="false" />
+    <Property Name="portal_opt_in" Type="Int32" Nullable="false" />
+    <Property Name="portal_opt_in_percentage" Type="Decimal" Precision="9" Scale="6" Nullable="false" />
+    <Property Name="portal_opt_out" Type="Int32" Nullable="false" />
+    <Property Name="total_renewed_subscribers" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_billing_status">
+    <End Role="StatusMsg" Type="Self.StatusMsg" Multiplicity="1" />
+    <End Role="Billing" Type="Self.Billing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusMsg">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Billing">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_billing_SubID">
+    <End Role="Subscription" Type="Self.Subscription" Multiplicity="1" />
+    <End Role="Billing" Type="Self.Billing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscription">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Billing">
+        <PropertyRef Name="SubscriberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_billing_transction">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="1" />
+    <End Role="Billing" Type="Self.Billing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Billing">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Status">
+    <End Role="StatusMsg" Type="Self.StatusMsg" Multiplicity="1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusMsg">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubHtry_StatusID">
+    <End Role="StatusMsg" Type="Self.StatusMsg" Multiplicity="1" />
+    <End Role="SubscriptionHistory" Type="Self.SubscriptionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusMsg">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubscriptionHistory">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sub_TransactionID">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="1" />
+    <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubHtry_TransactionID">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="1" />
+    <End Role="SubscriptionHistory" Type="Self.SubscriptionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubscriptionHistory">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PlatGameEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Billings" EntityType="Self.Billing" />
+    <EntitySet Name="Conversions" EntityType="Self.Conversion" />
+    <EntitySet Name="DnSummaryReports" EntityType="Self.DnSummaryReport" />
+    <EntitySet Name="FireBackLogs" EntityType="Self.FireBackLog" />
+    <EntitySet Name="LandingIPs" EntityType="Self.LandingIP" />
+    <EntitySet Name="StatusMsgs" EntityType="Self.StatusMsg" />
+    <EntitySet Name="Subscriptions" EntityType="Self.Subscription" />
+    <EntitySet Name="SubscriptionHistories" EntityType="Self.SubscriptionHistory" />
+    <EntitySet Name="SubscriptionSummaryReports" EntityType="Self.SubscriptionSummaryReport" />
+    <EntitySet Name="Telcoes" EntityType="Self.Telco" />
+    <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+    <EntitySet Name="TransactionSummaryReports" EntityType="Self.TransactionSummaryReport" />
+    <AssociationSet Name="FK_billing_status" Association="Self.FK_billing_status">
+      <End Role="StatusMsg" EntitySet="StatusMsgs" />
+      <End Role="Billing" EntitySet="Billings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_billing_SubID" Association="Self.FK_billing_SubID">
+      <End Role="Subscription" EntitySet="Subscriptions" />
+      <End Role="Billing" EntitySet="Billings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_billing_transction" Association="Self.FK_billing_transction">
+      <End Role="Transaction" EntitySet="Transactions" />
+      <End Role="Billing" EntitySet="Billings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Status" Association="Self.FK_Status">
+      <End Role="StatusMsg" EntitySet="StatusMsgs" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubHtry_StatusID" Association="Self.FK_SubHtry_StatusID">
+      <End Role="StatusMsg" EntitySet="StatusMsgs" />
+      <End Role="SubscriptionHistory" EntitySet="SubscriptionHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sub_TransactionID" Association="Self.FK_Sub_TransactionID">
+      <End Role="Transaction" EntitySet="Transactions" />
+      <End Role="Subscription" EntitySet="Subscriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubHtry_TransactionID" Association="Self.FK_SubHtry_TransactionID">
+      <End Role="Transaction" EntitySet="Transactions" />
+      <End Role="SubscriptionHistory" EntitySet="SubscriptionHistories" />
+    </AssociationSet>
+    <FunctionImport Name="AddDNSummary">
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="AddSubscriptionSummary">
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="AddTransactionSummary">
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="DNRealTime" ReturnType="Collection(Model.DNRealTime_Result)">
+      <Parameter Name="From" Mode="In" Type="DateTime" />
+      <Parameter Name="To" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="DNSummary" ReturnType="Collection(Model.DNSummary_Result)">
+      <Parameter Name="From" Mode="In" Type="DateTime" />
+      <Parameter Name="To" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="RevenueReport" ReturnType="Collection(Model.RevenueReport_Result)">
+      <Parameter Name="From" Mode="In" Type="DateTime" />
+      <Parameter Name="To" Mode="In" Type="DateTime" />
+      <Parameter Name="TelcoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SubInfo_RealTime" ReturnType="Collection(Model.SubInfo_RealTime_Result)">
+      <Parameter Name="From" Mode="In" Type="DateTime" />
+      <Parameter Name="To" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SubscriptionSummary" ReturnType="Collection(Model.SubscriptionSummary_Result)">
+      <Parameter Name="From" Mode="In" Type="DateTime" />
+      <Parameter Name="To" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="TransactionSummary" ReturnType="Collection(Model.TransactionSummary_Result)">
+      <Parameter Name="From" Mode="In" Type="DateTime" />
+      <Parameter Name="To" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="TransInfo_RealTime" ReturnType="Collection(Model.TransInfo_RealTime_Result)">
+      <Parameter Name="From" Mode="In" Type="DateTime" />
+      <Parameter Name="To" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <EntitySet Name="ClientTokens" EntityType="Model.ClientToken" />
+  </EntityContainer>
+  <ComplexType Name="DNRealTime_Result">
+    <Property Type="String" Name="MSISDN" Nullable="false" MaxLength="25" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="10" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="10" Scale="3" />
+  </ComplexType>
+  <ComplexType Name="DNSummary_Result">
+    <Property Type="DateTime" Name="TransDate" Nullable="true" />
+    <Property Type="Int32" Name="dn_total" Nullable="true" />
+    <Property Type="Int32" Name="dn_first_subscribe" Nullable="true" />
+    <Property Type="Int32" Name="dn_first_success_bill" Nullable="true" />
+    <Property Type="Int32" Name="dn_success_renewal" Nullable="true" />
+    <Property Type="Int32" Name="dn_failed_first_bill" Nullable="true" />
+    <Property Type="Int32" Name="dn_unsubscribe" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="RevenueReport_Result">
+    <Property Type="Int32" Name="TelcoID" Nullable="false" />
+    <Property Type="String" Name="TelcoName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="DATE" Nullable="true" />
+    <Property Type="Decimal" Name="TotalDaily" Nullable="true" Precision="38" Scale="3" />
+    <Property Type="Double" Name="FIShare" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SubInfo_RealTime_Result">
+    <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Msisdn" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Action" Nullable="false" MaxLength="26" />
+  </ComplexType>
+  <ComplexType Name="SubscriptionSummary_Result">
+    <Property Type="DateTime" Name="TransDate" Nullable="true" />
+    <Property Type="Int32" Name="dailysubscribers" Nullable="true" />
+    <Property Type="Int32" Name="totalsubscribers" Nullable="true" />
+    <Property Type="Int32" Name="subscribers_percentage" Nullable="true" />
+    <Property Type="Int32" Name="dailyunsubscribers" Nullable="true" />
+    <Property Type="Int32" Name="totalunsubscribers" Nullable="true" />
+    <Property Type="Int32" Name="unsubscribers_percentage" Nullable="true" />
+    <Property Type="Int32" Name="active_unique_sub" Nullable="true" />
+    <Property Type="Int32" Name="active_non_unique_sub" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TransactionSummary_Result">
+    <Property Type="DateTime" Name="TransDate" Nullable="true" />
+    <Property Type="Int32" Name="campaign_unique_msisdn_visited" Nullable="true" />
+    <Property Type="Int32" Name="campaign_opt_in" Nullable="true" />
+    <Property Type="Int32" Name="campaign_opt_in_percentage" Nullable="true" />
+    <Property Type="Int32" Name="campaign_opt_out" Nullable="true" />
+    <Property Type="Int32" Name="portal_unique_msisdn_visited" Nullable="false" />
+    <Property Type="Int32" Name="portal_opt_in" Nullable="true" />
+    <Property Type="Int32" Name="portal_opt_in_percentage" Nullable="false" />
+    <Property Type="Int32" Name="portal_opt_out" Nullable="true" />
+    <Property Type="Int32" Name="total_renewed_subscribers" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="TransInfo_RealTime_Result">
+    <Property Type="DateTime" Name="Date" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Msisdn" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="Action" Nullable="false" MaxLength="34" />
+  </ComplexType>
+  <EntityType Name="ClientToken">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Token" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LifeSpanInSec" Type="Int32" Nullable="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" Nullable="false" />
+  </EntityType>
+</Schema>

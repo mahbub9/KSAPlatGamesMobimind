@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Billing">
+    <Key>
+      <PropertyRef Name="BillingID" />
+    </Key>
+    <Property Name="BillingID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="StatusID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TransactionID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="SubscriberID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ClientToken">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="LifeSpanInSec" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Conversion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Msisdn" Type="nvarchar" MaxLength="50" />
+    <Property Name="Txid" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShortCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DnSummaryReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="dn_total" Type="int" />
+    <Property Name="dn_first_subscribe" Type="int" />
+    <Property Name="dn_first_success_bill" Type="int" />
+    <Property Name="dn_success_renewal" Type="int" />
+    <Property Name="dn_failed_first_bill" Type="int" />
+    <Property Name="dn_unsubscribe" Type="int" />
+  </EntityType>
+  <EntityType Name="FireBackLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Msisdn" Type="nvarchar" MaxLength="50" />
+    <Property Name="Txid" Type="nvarchar" MaxLength="100" />
+    <Property Name="Result" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LandingIP">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="txid" Type="nvarchar" MaxLength="100" />
+    <Property Name="affId" Type="nvarchar" MaxLength="50" />
+    <Property Name="pubId" Type="nvarchar" MaxLength="100" />
+    <Property Name="pageid" Type="nvarchar" MaxLength="100" />
+    <Property Name="PageUrl" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Msisdn" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="StatusMsg">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TransactionID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Msisdn" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsSubscriped" Type="bit" Nullable="false" />
+    <Property Name="SubscriptionDate" Type="datetime" Nullable="false" />
+    <Property Name="UnSubscriptionDate" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="txid" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsFirstBillingCharged" Type="bit" Nullable="false" />
+    <Property Name="TelcoID" Type="int" />
+  </EntityType>
+  <EntityType Name="SubscriptionHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TransactionID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Status" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Msisdn" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubscriptionSummaryReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransDate" Type="datetime" Nullable="false" />
+    <Property Name="dailysubscribers" Type="int" />
+    <Property Name="totalsubscribers" Type="int" />
+    <Property Name="subscribers_percentage" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="dailyunsubscribers" Type="int" />
+    <Property Name="totalunsubscribers" Type="int" />
+    <Property Name="unsubscribers_percentage" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="active_non_unique_sub" Type="int" />
+    <Property Name="active_unique_sub" Type="int" />
+  </EntityType>
+  <EntityType Name="Telco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TelcoId" Type="int" Nullable="false" />
+    <Property Name="CMTelcoId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="FIShare" Type="float" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="User" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="ServiceID" Type="int" Nullable="false" />
+    <Property Name="ChannelID" Type="int" Nullable="false" />
+    <Property Name="OperatorID" Type="int" Nullable="false" />
+    <Property Name="RequestID" Type="nvarchar" MaxLength="50" />
+    <Property Name="MSISDN" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="STATUS" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="AffId" Type="varchar" MaxLength="50" />
+    <Property Name="PubId" Type="varchar" MaxLength="50" />
+    <Property Name="PageId" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TransactionSummaryReport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TransDate" Type="datetime" Nullable="false" />
+    <Property Name="campaign_unique_msisdn_visited" Type="int" Nullable="false" />
+    <Property Name="campaign_opt_in" Type="int" Nullable="false" />
+    <Property Name="campaign_opt_in_percentage" Type="decimal" Precision="9" Scale="6" Nullable="false" />
+    <Property Name="campaign_opt_out" Type="int" Nullable="false" />
+    <Property Name="portal_unique_msisdn_visited" Type="int" Nullable="false" />
+    <Property Name="portal_opt_in" Type="int" Nullable="false" />
+    <Property Name="portal_opt_in_percentage" Type="decimal" Precision="9" Scale="6" Nullable="false" />
+    <Property Name="portal_opt_out" Type="int" Nullable="false" />
+    <Property Name="total_renewed_subscribers" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_billing_status">
+    <End Role="StatusMsg" Type="Self.StatusMsg" Multiplicity="1" />
+    <End Role="Billing" Type="Self.Billing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusMsg">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Billing">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_billing_SubID">
+    <End Role="Subscription" Type="Self.Subscription" Multiplicity="1" />
+    <End Role="Billing" Type="Self.Billing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscription">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Billing">
+        <PropertyRef Name="SubscriberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_billing_transction">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="1" />
+    <End Role="Billing" Type="Self.Billing" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Billing">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Status">
+    <End Role="StatusMsg" Type="Self.StatusMsg" Multiplicity="1" />
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusMsg">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="STATUS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sub_TransactionID">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="1" />
+    <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscription">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubHtry_StatusID">
+    <End Role="StatusMsg" Type="Self.StatusMsg" Multiplicity="1" />
+    <End Role="SubscriptionHistory" Type="Self.SubscriptionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StatusMsg">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubscriptionHistory">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubHtry_TransactionID">
+    <End Role="Transaction" Type="Self.Transaction" Multiplicity="1" />
+    <End Role="SubscriptionHistory" Type="Self.SubscriptionHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Transaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubscriptionHistory">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddDNSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="AddSubscriptionSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="AddTransactionSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="DNRealTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="From" Type="datetime" Mode="In" />
+    <Parameter Name="To" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="DNSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="From" Type="datetime" Mode="In" />
+    <Parameter Name="To" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="RevenueReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="From" Type="datetime" Mode="In" />
+    <Parameter Name="To" Type="datetime" Mode="In" />
+    <Parameter Name="TelcoID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SubInfo_RealTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="SubInfo-RealTime">
+    <Parameter Name="From" Type="datetime" Mode="In" />
+    <Parameter Name="To" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SubscriptionSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="From" Type="datetime" Mode="In" />
+    <Parameter Name="To" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="TransactionSummary" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="From" Type="datetime" Mode="In" />
+    <Parameter Name="To" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="TransInfo_RealTime" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="TransInfo-RealTime">
+    <Parameter Name="From" Type="datetime" Mode="In" />
+    <Parameter Name="To" Type="datetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Billing" EntityType="Self.Billing" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ClientToken" EntityType="Self.ClientToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Conversion" EntityType="Self.Conversion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DnSummaryReport" EntityType="Self.DnSummaryReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FireBackLog" EntityType="Self.FireBackLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LandingIP" EntityType="Self.LandingIP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusMsg" EntityType="Self.StatusMsg" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subscription" EntityType="Self.Subscription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubscriptionHistory" EntityType="Self.SubscriptionHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubscriptionSummaryReport" EntityType="Self.SubscriptionSummaryReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Telco" EntityType="Self.Telco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransactionSummaryReport" EntityType="Self.TransactionSummaryReport" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_billing_status" Association="Self.FK_billing_status">
+      <End Role="StatusMsg" EntitySet="StatusMsg" />
+      <End Role="Billing" EntitySet="Billing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_billing_SubID" Association="Self.FK_billing_SubID">
+      <End Role="Subscription" EntitySet="Subscription" />
+      <End Role="Billing" EntitySet="Billing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_billing_transction" Association="Self.FK_billing_transction">
+      <End Role="Transaction" EntitySet="Transaction" />
+      <End Role="Billing" EntitySet="Billing" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Status" Association="Self.FK_Status">
+      <End Role="StatusMsg" EntitySet="StatusMsg" />
+      <End Role="Transaction" EntitySet="Transaction" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sub_TransactionID" Association="Self.FK_Sub_TransactionID">
+      <End Role="Transaction" EntitySet="Transaction" />
+      <End Role="Subscription" EntitySet="Subscription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubHtry_StatusID" Association="Self.FK_SubHtry_StatusID">
+      <End Role="StatusMsg" EntitySet="StatusMsg" />
+      <End Role="SubscriptionHistory" EntitySet="SubscriptionHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubHtry_TransactionID" Association="Self.FK_SubHtry_TransactionID">
+      <End Role="Transaction" EntitySet="Transaction" />
+      <End Role="SubscriptionHistory" EntitySet="SubscriptionHistory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,12 @@
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\bin\Debug\PlatGame.Data.dll.config
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\bin\Debug\PlatGame.Data.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\bin\Debug\PlatGame.Data.pdb
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\bin\Debug\EntityFramework.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\bin\Debug\EntityFramework.xml
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\obj\Debug\PlatGame.DataAccess.csprojAssemblyReference.cache
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\obj\Debug\PlatGame.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\obj\Debug\PlatGame.DataAccess.csproj.CopyComplete
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\obj\Debug\PlatGame.Data.dll
+C:\Users\mr9ra\Desktop\Working Copy\PlatGame\PlatGame.Data\obj\Debug\PlatGame.Data.pdb

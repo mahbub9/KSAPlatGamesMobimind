@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KSAPlatGamesMobimindModelStoreContainer" CdmEntityContainer="KSAPlatGamesMobimindEntities">
+    <EntitySetMapping Name="DailySubInfoes">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.DailySubInfo">
+        <MappingFragment StoreEntitySet="DailySubInfo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="telcoName" ColumnName="telcoName" />
+          <ScalarProperty Name="totalCanceled" ColumnName="totalCanceled" />
+          <ScalarProperty Name="totalRegistered" ColumnName="totalRegistered" />
+          <ScalarProperty Name="totalRenewal" ColumnName="totalRenewal" />
+          <ScalarProperty Name="totalActive" ColumnName="totalActive" />
+          <ScalarProperty Name="shortcode" ColumnName="shortcode" />
+          <ScalarProperty Name="keyword" ColumnName="keyword" />
+          <ScalarProperty Name="dailyCampaignSubRevenue" ColumnName="dailyCampaignSubRevenue" />
+          <ScalarProperty Name="dailyCampaignRenRevenue" ColumnName="dailyCampaignRenRevenue" />
+          <ScalarProperty Name="dailyCampaignRevenue" ColumnName="dailyCampaignRevenue" />
+          <ScalarProperty Name="dailyPortalSubRevenue" ColumnName="dailyPortalSubRevenue" />
+          <ScalarProperty Name="dailyPortalRenRevenue" ColumnName="dailyPortalRenRevenue" />
+          <ScalarProperty Name="dailyPortalRevenue" ColumnName="dailyPortalRevenue" />
+          <ScalarProperty Name="dailySubRevenue" ColumnName="dailySubRevenue" />
+          <ScalarProperty Name="dailyRenRevenue" ColumnName="dailyRenRevenue" />
+          <ScalarProperty Name="dailyRevenue" ColumnName="dailyRevenue" />
+          <ScalarProperty Name="totalInActive" ColumnName="totalInActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DNs">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.DN">
+        <MappingFragment StoreEntitySet="DN">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="dn_id" ColumnName="dn_id" />
+          <ScalarProperty Name="mt_id" ColumnName="mt_id" />
+          <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+          <ScalarProperty Name="shortcode" ColumnName="shortcode" />
+          <ScalarProperty Name="keyword" ColumnName="keyword" />
+          <ScalarProperty Name="dnType" ColumnName="dnType" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="statusCode" ColumnName="statusCode" />
+          <ScalarProperty Name="statusMsg" ColumnName="statusMsg" />
+          <ScalarProperty Name="dateReceived" ColumnName="dateReceived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Landings">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.Landing">
+        <MappingFragment StoreEntitySet="Landing">
+          <ScalarProperty Name="LandingDate" ColumnName="LandingDate" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LandingClicks">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.LandingClick">
+        <MappingFragment StoreEntitySet="LandingClicks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Txid" ColumnName="Txid" />
+          <ScalarProperty Name="Affid" ColumnName="Affid" />
+          <ScalarProperty Name="PubId" ColumnName="PubId" />
+          <ScalarProperty Name="LandingDate" ColumnName="LandingDate" />
+          <ScalarProperty Name="LandingSource" ColumnName="LandingSource" />
+          <ScalarProperty Name="FirebackDate" ColumnName="FirebackDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOes">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.MO">
+        <MappingFragment StoreEntitySet="MO">
+          <ScalarProperty Name="mo_id" ColumnName="mo_id" />
+          <ScalarProperty Name="txid" ColumnName="txid" />
+          <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+          <ScalarProperty Name="shortcode" ColumnName="shortcode" />
+          <ScalarProperty Name="keyword" ColumnName="keyword" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="mo_origin" ColumnName="mo_origin" />
+          <ScalarProperty Name="dateReceived" ColumnName="dateReceived" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MTs">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.MT">
+        <MappingFragment StoreEntitySet="MT">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="MtPurpose" ColumnName="MtPurpose" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="message" ColumnName="message" />
+          <ScalarProperty Name="MessagePartsCount" ColumnName="MessagePartsCount" />
+          <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscriptions">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.Subscription">
+        <MappingFragment StoreEntitySet="Subscription">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubscriptionDate" ColumnName="SubscriptionDate" />
+          <ScalarProperty Name="TerminationDate" ColumnName="TerminationDate" />
+          <ScalarProperty Name="SubMethod" ColumnName="SubMethod" />
+          <ScalarProperty Name="TerminationMethod" ColumnName="TerminationMethod" />
+          <ScalarProperty Name="SubscribedBy" ColumnName="SubscribedBy" />
+          <ScalarProperty Name="TerminatedBy" ColumnName="TerminatedBy" />
+          <ScalarProperty Name="RenewalDate" ColumnName="RenewalDate" />
+          <ScalarProperty Name="RenewalSent" ColumnName="RenewalSent" />
+          <ScalarProperty Name="IsSubscribed" ColumnName="IsSubscribed" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="Txid" ColumnName="Txid" />
+          <ScalarProperty Name="LastCharegDate" ColumnName="LastCharegDate" />
+          <ScalarProperty Name="IsCampaign" ColumnName="IsCampaign" />
+          <ScalarProperty Name="LandingClicksId" ColumnName="LandingClicksId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscriptionHistories">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.SubscriptionHistory">
+        <MappingFragment StoreEntitySet="SubscriptionHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubscriptionId" ColumnName="SubscriptionId" />
+          <ScalarProperty Name="SubscriptionDate" ColumnName="SubscriptionDate" />
+          <ScalarProperty Name="TerminationDate" ColumnName="TerminationDate" />
+          <ScalarProperty Name="SubMethod" ColumnName="SubMethod" />
+          <ScalarProperty Name="TerminationMethod" ColumnName="TerminationMethod" />
+          <ScalarProperty Name="SubscribedBy" ColumnName="SubscribedBy" />
+          <ScalarProperty Name="TerminatedBy" ColumnName="TerminatedBy" />
+          <ScalarProperty Name="RenewalDate" ColumnName="RenewalDate" />
+          <ScalarProperty Name="RenewalSent" ColumnName="RenewalSent" />
+          <ScalarProperty Name="IsSubscribed" ColumnName="IsSubscribed" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="Txid" ColumnName="Txid" />
+          <ScalarProperty Name="LastCharegDate" ColumnName="LastCharegDate" />
+          <ScalarProperty Name="IsCampaign" ColumnName="IsCampaign" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="LandingClicksId" ColumnName="LandingClicksId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelcoInfoes">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.TelcoInfo">
+        <MappingFragment StoreEntitySet="TelcoInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TelcoName" ColumnName="TelcoName" />
+          <ScalarProperty Name="Aggregator" ColumnName="Aggregator" />
+          <ScalarProperty Name="Shear" ColumnName="Shear" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CMId" ColumnName="CMId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.Transaction">
+        <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="SubscriptionId" ColumnName="SubscriptionId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+          <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionSummaries">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.TransactionSummary">
+        <MappingFragment StoreEntitySet="TransactionSummary">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="UniqueMSISDNCampaign" ColumnName="UniqueMSISDNCampaign" />
+          <ScalarProperty Name="CampaignOptIn" ColumnName="CampaignOptIn" />
+          <ScalarProperty Name="CampaignOptInPercentage" ColumnName="CampaignOptInPercentage" />
+          <ScalarProperty Name="UniqueMSISDNPortal" ColumnName="UniqueMSISDNPortal" />
+          <ScalarProperty Name="PortalOptIn" ColumnName="PortalOptIn" />
+          <ScalarProperty Name="TotalActiveSubscribers" ColumnName="TotalActiveSubscribers" />
+          <ScalarProperty Name="DailyCampaignOptOut" ColumnName="DailyCampaignOptOut" />
+          <ScalarProperty Name="TotalCampaignOptOut" ColumnName="TotalCampaignOptOut" />
+          <ScalarProperty Name="DailyPortalOptOut" ColumnName="DailyPortalOptOut" />
+          <ScalarProperty Name="TotalPortalOptOut" ColumnName="TotalPortalOptOut" />
+          <ScalarProperty Name="TotalInactiveSubscribers" ColumnName="TotalInactiveSubscribers" />
+          <ScalarProperty Name="Renewal" ColumnName="Renewal" />
+          <ScalarProperty Name="Revenue" ColumnName="Revenue" />
+          <ScalarProperty Name="RenewalCampaign" ColumnName="RenewalCampaign" />
+          <ScalarProperty Name="RenewalPortal" ColumnName="RenewalPortal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionTypes">
+      <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.TransactionType">
+        <MappingFragment StoreEntitySet="TransactionTypes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="KSAPlatGamesMobimindModel.Store.GetRevenueReport" FunctionImportName="GetRevenueReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="KSAPlatGamesMobimindModel.GetRevenueReport_Result">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="TelcoID" ColumnName="TelcoID" />
+          <ScalarProperty Name="TelcoName" ColumnName="TelcoName" />
+          <ScalarProperty Name="TotalDaily" ColumnName="TotalDaily" />
+          <ScalarProperty Name="FIShare" ColumnName="FIShare" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="KSAPlatGamesMobimindModel.Store.SubscriptionInfo" FunctionImportName="SubscriptionInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="KSAPlatGamesMobimindModel.SubscriptionInfo_Result">
+          <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+          <ScalarProperty Name="Telco" ColumnName="Telco" />
+          <ScalarProperty Name="dailysubscribers" ColumnName="dailysubscribers" />
+          <ScalarProperty Name="totalsubscribers" ColumnName="totalsubscribers" />
+          <ScalarProperty Name="subscribers_percentage" ColumnName="subscribers_percentage" />
+          <ScalarProperty Name="dailyunsubscribers" ColumnName="dailyunsubscribers" />
+          <ScalarProperty Name="totalunsubscribers" ColumnName="totalunsubscribers" />
+          <ScalarProperty Name="unsubscribers_percentage" ColumnName="unsubscribers_percentage" />
+          <ScalarProperty Name="msisdn_removal" ColumnName="msisdn_removal" />
+          <ScalarProperty Name="active_non_unique_sub" ColumnName="active_non_unique_sub" />
+          <ScalarProperty Name="active_unique_sub" ColumnName="active_unique_sub" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="KSAPlatGamesMobimindModel.Store.TransactionSummaryReport" FunctionImportName="TransactionSummaryReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="KSAPlatGamesMobimindModel.TransactionSummaryReport_Result">
+          <ScalarProperty Name="Telco" ColumnName="Telco" />
+          <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+          <ScalarProperty Name="campaign_unique_msisdn_visited" ColumnName="campaign_unique_msisdn_visited" />
+          <ScalarProperty Name="campaign_opt_in" ColumnName="campaign_opt_in" />
+          <ScalarProperty Name="campaign_opt_in_percentage" ColumnName="campaign_opt_in_percentage" />
+          <ScalarProperty Name="campaign_opt_out" ColumnName="campaign_opt_out" />
+          <ScalarProperty Name="portal_unique_msisdn_visited" ColumnName="portal_unique_msisdn_visited" />
+          <ScalarProperty Name="portal_opt_in" ColumnName="portal_opt_in" />
+          <ScalarProperty Name="portal_opt_in_percentage" ColumnName="portal_opt_in_percentage" />
+          <ScalarProperty Name="portal_opt_out" ColumnName="portal_opt_out" />
+          <ScalarProperty Name="total_renewed_subscribers" ColumnName="total_renewed_subscribers" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AddLanding" FunctionName="KSAPlatGamesMobimindModel.Store.AddLanding" />
+  </EntityContainerMapping>
+</Mapping>

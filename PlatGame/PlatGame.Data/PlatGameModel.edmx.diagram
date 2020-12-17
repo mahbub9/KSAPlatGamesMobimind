@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a2c812e5c42642b1b31f1953a93e58a6" Name="Diagram1">
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.DailySubInfo" Width="1.5" PointX="7.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.DN" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.Landing" Width="1.5" PointX="9.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.LandingClick" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.MO" Width="1.5" PointX="9.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.MT" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.Subscription" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.SubscriptionHistory" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.TelcoInfo" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.Transaction" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.TransactionSummary" Width="1.5" PointX="9.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KSAPlatGamesMobimindModel.TransactionType" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="KSAPlatGamesMobimindModel.FK_dbo_DN_dbo_MT_mt_id" ManuallyRouted="false" />
+        <AssociationConnector Association="KSAPlatGamesMobimindModel.FK_Subscription_LandingClicks" ManuallyRouted="false" />
+        <AssociationConnector Association="KSAPlatGamesMobimindModel.FK_MT_Subscription" ManuallyRouted="false" />
+        <AssociationConnector Association="KSAPlatGamesMobimindModel.FK_dbo_Subscription_dbo_TelcoInfo_telcoId" ManuallyRouted="false" />
+        <AssociationConnector Association="KSAPlatGamesMobimindModel.FK_SubscriptionHistory_Subscription" ManuallyRouted="false" />
+        <AssociationConnector Association="KSAPlatGamesMobimindModel.FK_Transactions_Subscription" ManuallyRouted="false" />
+        <AssociationConnector Association="KSAPlatGamesMobimindModel.FK_SubscriptionHistory_TelcoInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="KSAPlatGamesMobimindModel.FK_Transactions_TelcoInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="KSAPlatGamesMobimindModel.FK_dbo_Transactions_dbo_TransactionTypes_TypeID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

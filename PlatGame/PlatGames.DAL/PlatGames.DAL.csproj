@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA12E7FC-F062-4688-9A3C-6EBC35C52EC5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PlatGames.DAL</RootNamespace>
+    <AssemblyName>PlatGames.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ForestInterActive, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\forest-interactive.lib.1.3.7\lib\ForestInterActive.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.21.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.21\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseRepo.cs" />
+    <Compile Include="DailySubInfo.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataRepo\AddLandingRepo.cs" />
+    <Compile Include="DataRepo\LandingClicksRepo.cs" />
+    <Compile Include="DataRepo\MTRepo.cs" />
+    <Compile Include="DataRepo\ReportRepo.cs" />
+    <Compile Include="DataRepo\SubscriptionHistoryRepo.cs" />
+    <Compile Include="DataRepo\SubscriptionRepo.cs" />
+    <Compile Include="DataRepo\TelcoInfoRepo.cs" />
+    <Compile Include="DataRepo\TransactionsRepo.cs" />
+    <Compile Include="DataRepo\TransactionTypesRepo.cs" />
+    <Compile Include="DN.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetRevenueReport_Result.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Landing.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LandingClick.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MO.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MT.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlatGamesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlatGamesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlatGamesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlatGamesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PlatGamesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
+    <Compile Include="Subscription.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscriptionHistory.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubscriptionInfo_Result.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TelcoInfo.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Transaction.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionSummary.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionSummaryReport_Result.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionType.cs">
+      <DependentUpon>PlatGamesModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="PlatGamesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PlatGamesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="PlatGamesModel.edmx.diagram">
+      <DependentUpon>PlatGamesModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PlatGamesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PlatGamesModel.Context.cs</LastGenOutput>
+      <DependentUpon>PlatGamesModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="PlatGamesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PlatGamesModel.edmx</DependentUpon>
+      <LastGenOutput>PlatGamesModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

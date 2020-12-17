@@ -1,0 +1,1106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KSAPlatGamesMobimindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DailySubInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="telcoName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="totalCanceled" Type="int" Nullable="false" />
+          <Property Name="totalRegistered" Type="int" Nullable="false" />
+          <Property Name="totalRenewal" Type="int" Nullable="false" />
+          <Property Name="totalActive" Type="int" Nullable="false" />
+          <Property Name="shortcode" Type="nvarchar" MaxLength="20" />
+          <Property Name="keyword" Type="nvarchar" MaxLength="20" />
+          <Property Name="dailyCampaignSubRevenue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyCampaignRenRevenue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyCampaignRevenue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyPortalSubRevenue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyPortalRenRevenue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyPortalRevenue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailySubRevenue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyRenRevenue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyRevenue" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="totalInActive" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dn_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mt_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="msisdn" Type="nvarchar" MaxLength="50" />
+          <Property Name="shortcode" Type="int" />
+          <Property Name="keyword" Type="nvarchar" MaxLength="30" />
+          <Property Name="dnType" Type="nvarchar" MaxLength="50" />
+          <Property Name="status" Type="nvarchar" MaxLength="100" />
+          <Property Name="statusCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="statusMsg" Type="nvarchar" MaxLength="300" />
+          <Property Name="dateReceived" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Landing">
+          <Key>
+            <PropertyRef Name="LandingDate" />
+          </Key>
+          <Property Name="LandingDate" Type="date" Nullable="false" />
+          <Property Name="Total" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LandingClicks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Txid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Affid" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PubId" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="LandingDate" Type="datetime" Nullable="false" />
+          <Property Name="LandingSource" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirebackDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MO">
+          <Key>
+            <PropertyRef Name="mo_id" />
+          </Key>
+          <Property Name="mo_id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="txid" Type="nvarchar" MaxLength="30" />
+          <Property Name="msisdn" Type="nvarchar" MaxLength="50" />
+          <Property Name="shortcode" Type="int" />
+          <Property Name="keyword" Type="nvarchar" MaxLength="50" />
+          <Property Name="message" Type="nvarchar" MaxLength="100" />
+          <Property Name="action" Type="nvarchar" MaxLength="10" />
+          <Property Name="mo_origin" Type="nvarchar" MaxLength="50" />
+          <Property Name="dateReceived" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubscriberId" Type="uniqueidentifier" />
+          <Property Name="MtPurpose" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="message" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="MessagePartsCount" Type="int" Nullable="false" />
+          <Property Name="DateSent" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="msisdn" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subscription">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubscriptionDate" Type="datetime" Nullable="false" />
+          <Property Name="TerminationDate" Type="datetime" />
+          <Property Name="SubMethod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TerminationMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubscribedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TerminatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="RenewalDate" Type="datetime" />
+          <Property Name="RenewalSent" Type="bit" />
+          <Property Name="IsSubscribed" Type="bit" Nullable="false" />
+          <Property Name="TelcoId" Type="int" Nullable="false" />
+          <Property Name="Msisdn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Txid" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastCharegDate" Type="datetime" />
+          <Property Name="IsCampaign" Type="bit" Nullable="false" />
+          <Property Name="LandingClicksId" Type="uniqueidentifier" />
+          <Property Name="Code" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="SubscriptionHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubscriptionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubscriptionDate" Type="datetime" Nullable="false" />
+          <Property Name="TerminationDate" Type="datetime" />
+          <Property Name="SubMethod" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TerminationMethod" Type="nvarchar" MaxLength="50" />
+          <Property Name="SubscribedBy" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="TerminatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="RenewalDate" Type="datetime" />
+          <Property Name="RenewalSent" Type="bit" />
+          <Property Name="IsSubscribed" Type="bit" Nullable="false" />
+          <Property Name="TelcoId" Type="int" Nullable="false" />
+          <Property Name="Msisdn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Txid" Type="nvarchar" MaxLength="128" />
+          <Property Name="LastCharegDate" Type="datetime" />
+          <Property Name="IsCampaign" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="LandingClicksId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="TelcoInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="TelcoName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Aggregator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Shear" Type="decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="Code" Type="int" />
+          <Property Name="CMId" Type="int" />
+        </EntityType>
+        <EntityType Name="Transactions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="SubscriptionId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="TelcoId" Type="int" Nullable="false" />
+          <Property Name="RequestID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Msisdn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="OperatorID" Type="int" Nullable="false" />
+          <Property Name="ChannelID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionSummary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TelcoId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="UniqueMSISDNCampaign" Type="int" Nullable="false" />
+          <Property Name="CampaignOptIn" Type="int" Nullable="false" />
+          <Property Name="CampaignOptInPercentage" Type="float" Nullable="false" />
+          <Property Name="UniqueMSISDNPortal" Type="int" Nullable="false" />
+          <Property Name="PortalOptIn" Type="int" Nullable="false" />
+          <Property Name="TotalActiveSubscribers" Type="int" Nullable="false" />
+          <Property Name="DailyCampaignOptOut" Type="int" Nullable="false" />
+          <Property Name="TotalCampaignOptOut" Type="int" Nullable="false" />
+          <Property Name="DailyPortalOptOut" Type="int" Nullable="false" />
+          <Property Name="TotalPortalOptOut" Type="int" Nullable="false" />
+          <Property Name="TotalInactiveSubscribers" Type="int" Nullable="false" />
+          <Property Name="Renewal" Type="int" Nullable="false" />
+          <Property Name="Revenue" Type="int" Nullable="false" />
+          <Property Name="RenewalCampaign" Type="int" Nullable="false" />
+          <Property Name="RenewalPortal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_DN_dbo_MT_mt_id">
+          <End Role="MT" Type="Self.MT" Multiplicity="1" />
+          <End Role="DN" Type="Self.DN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MT">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DN">
+              <PropertyRef Name="mt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Subscription_dbo_TelcoInfo_telcoId">
+          <End Role="TelcoInfo" Type="Self.TelcoInfo" Multiplicity="1" />
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TelcoInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="TelcoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Transactions_dbo_TransactionTypes_TypeID">
+          <End Role="TransactionTypes" Type="Self.TransactionTypes" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MT_Subscription">
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="0..1" />
+          <End Role="MT" Type="Self.MT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscription">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MT">
+              <PropertyRef Name="SubscriberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscription_LandingClicks">
+          <End Role="LandingClicks" Type="Self.LandingClicks" Multiplicity="0..1" />
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LandingClicks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="LandingClicksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionHistory_Subscription">
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="1" />
+          <End Role="SubscriptionHistory" Type="Self.SubscriptionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscription">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubscriptionHistory">
+              <PropertyRef Name="SubscriptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionHistory_TelcoInfo">
+          <End Role="TelcoInfo" Type="Self.TelcoInfo" Multiplicity="1" />
+          <End Role="SubscriptionHistory" Type="Self.SubscriptionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TelcoInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubscriptionHistory">
+              <PropertyRef Name="TelcoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Subscription">
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscription">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="SubscriptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_TelcoInfo">
+          <End Role="TelcoInfo" Type="Self.TelcoInfo" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transactions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TelcoInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="TelcoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddLanding" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetRevenueReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="From" Type="datetime" Mode="In" />
+          <Parameter Name="To" Type="datetime" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Date" Type="date" />
+                <Property Name="TelcoID" Type="int" />
+                <Property Name="TelcoName" Type="nvarchar" MaxLength="50" />
+                <Property Name="TotalDaily" Type="decimal" Precision="38" Scale="2" Nullable="false" />
+                <Property Name="FIShare" Type="decimal" Precision="38" Scale="6" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="ScrubOrNot" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit" />
+        <Function Name="SubscriptionInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="From" Type="date" Mode="In" />
+          <Parameter Name="To" Type="date" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="TransDate" Type="date" />
+                <Property Name="Telco" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="dailysubscribers" Type="int" Nullable="false" />
+                <Property Name="totalsubscribers" Type="int" />
+                <Property Name="subscribers_percentage" Type="int" Nullable="false" />
+                <Property Name="dailyunsubscribers" Type="int" Nullable="false" />
+                <Property Name="totalunsubscribers" Type="int" />
+                <Property Name="unsubscribers_percentage" Type="int" Nullable="false" />
+                <Property Name="msisdn_removal" Type="int" Nullable="false" />
+                <Property Name="active_non_unique_sub" Type="int" Nullable="false" />
+                <Property Name="active_unique_sub" Type="int" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="TransactionSummaryReport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="From" Type="date" Mode="In" />
+          <Parameter Name="To" Type="date" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Telco" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="TransDate" Type="date" />
+                <Property Name="campaign_unique_msisdn_visited" Type="int" Nullable="false" />
+                <Property Name="campaign_opt_in" Type="int" Nullable="false" />
+                <Property Name="campaign_opt_in_percentage" Type="int" Nullable="false" />
+                <Property Name="campaign_opt_out" Type="int" Nullable="false" />
+                <Property Name="portal_unique_msisdn_visited" Type="int" Nullable="false" />
+                <Property Name="portal_opt_in" Type="int" Nullable="false" />
+                <Property Name="portal_opt_in_percentage" Type="int" Nullable="false" />
+                <Property Name="portal_opt_out" Type="int" Nullable="false" />
+                <Property Name="total_renewed_subscribers" Type="int" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="KSAPlatGamesMobimindModelStoreContainer">
+          <EntitySet Name="DailySubInfo" EntityType="Self.DailySubInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DN" EntityType="Self.DN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Landing" EntityType="Self.Landing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LandingClicks" EntityType="Self.LandingClicks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MO" EntityType="Self.MO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MT" EntityType="Self.MT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscription" EntityType="Self.Subscription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubscriptionHistory" EntityType="Self.SubscriptionHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TelcoInfo" EntityType="Self.TelcoInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionSummary" EntityType="Self.TransactionSummary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionTypes" EntityType="Self.TransactionTypes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_DN_dbo_MT_mt_id" Association="Self.FK_dbo_DN_dbo_MT_mt_id">
+            <End Role="MT" EntitySet="MT" />
+            <End Role="DN" EntitySet="DN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Subscription_dbo_TelcoInfo_telcoId" Association="Self.FK_dbo_Subscription_dbo_TelcoInfo_telcoId">
+            <End Role="TelcoInfo" EntitySet="TelcoInfo" />
+            <End Role="Subscription" EntitySet="Subscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Transactions_dbo_TransactionTypes_TypeID" Association="Self.FK_dbo_Transactions_dbo_TransactionTypes_TypeID">
+            <End Role="TransactionTypes" EntitySet="TransactionTypes" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MT_Subscription" Association="Self.FK_MT_Subscription">
+            <End Role="Subscription" EntitySet="Subscription" />
+            <End Role="MT" EntitySet="MT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscription_LandingClicks" Association="Self.FK_Subscription_LandingClicks">
+            <End Role="LandingClicks" EntitySet="LandingClicks" />
+            <End Role="Subscription" EntitySet="Subscription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionHistory_Subscription" Association="Self.FK_SubscriptionHistory_Subscription">
+            <End Role="Subscription" EntitySet="Subscription" />
+            <End Role="SubscriptionHistory" EntitySet="SubscriptionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionHistory_TelcoInfo" Association="Self.FK_SubscriptionHistory_TelcoInfo">
+            <End Role="TelcoInfo" EntitySet="TelcoInfo" />
+            <End Role="SubscriptionHistory" EntitySet="SubscriptionHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Subscription" Association="Self.FK_Transactions_Subscription">
+            <End Role="Subscription" EntitySet="Subscription" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_TelcoInfo" Association="Self.FK_Transactions_TelcoInfo">
+            <End Role="TelcoInfo" EntitySet="TelcoInfo" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KSAPlatGamesMobimindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="GetRevenueReport_Result">
+          <Property Name="Date" Type="DateTime" />
+          <Property Name="TelcoID" Type="Int32" />
+          <Property Name="TelcoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalDaily" Type="Decimal" Precision="38" Scale="2" Nullable="false" />
+          <Property Name="FIShare" Type="Decimal" Precision="38" Scale="6" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="SubscriptionInfo_Result">
+          <Property Name="TransDate" Type="DateTime" />
+          <Property Name="Telco" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dailysubscribers" Type="Int32" Nullable="false" />
+          <Property Name="totalsubscribers" Type="Int32" />
+          <Property Name="subscribers_percentage" Type="Int32" Nullable="false" />
+          <Property Name="dailyunsubscribers" Type="Int32" Nullable="false" />
+          <Property Name="totalunsubscribers" Type="Int32" />
+          <Property Name="unsubscribers_percentage" Type="Int32" Nullable="false" />
+          <Property Name="msisdn_removal" Type="Int32" Nullable="false" />
+          <Property Name="active_non_unique_sub" Type="Int32" Nullable="false" />
+          <Property Name="active_unique_sub" Type="Int32" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="TransactionSummaryReport_Result">
+          <Property Name="Telco" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TransDate" Type="DateTime" />
+          <Property Name="campaign_unique_msisdn_visited" Type="Int32" Nullable="false" />
+          <Property Name="campaign_opt_in" Type="Int32" Nullable="false" />
+          <Property Name="campaign_opt_in_percentage" Type="Int32" Nullable="false" />
+          <Property Name="campaign_opt_out" Type="Int32" Nullable="false" />
+          <Property Name="portal_unique_msisdn_visited" Type="Int32" Nullable="false" />
+          <Property Name="portal_opt_in" Type="Int32" Nullable="false" />
+          <Property Name="portal_opt_in_percentage" Type="Int32" Nullable="false" />
+          <Property Name="portal_opt_out" Type="Int32" Nullable="false" />
+          <Property Name="total_renewed_subscribers" Type="Int32" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="DailySubInfo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="telcoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="totalCanceled" Type="Int32" Nullable="false" />
+          <Property Name="totalRegistered" Type="Int32" Nullable="false" />
+          <Property Name="totalRenewal" Type="Int32" Nullable="false" />
+          <Property Name="totalActive" Type="Int32" Nullable="false" />
+          <Property Name="shortcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="keyword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="dailyCampaignSubRevenue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyCampaignRenRevenue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyCampaignRevenue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyPortalSubRevenue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyPortalRenRevenue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyPortalRevenue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailySubRevenue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyRenRevenue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="dailyRevenue" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="totalInActive" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DN">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dn_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mt_id" Type="Guid" Nullable="false" />
+          <Property Name="msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shortcode" Type="Int32" />
+          <Property Name="keyword" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="dnType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="statusCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="statusMsg" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="dateReceived" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MT" Relationship="Self.FK_dbo_DN_dbo_MT_mt_id" FromRole="DN" ToRole="MT" />
+        </EntityType>
+        <EntityType Name="Landing">
+          <Key>
+            <PropertyRef Name="LandingDate" />
+          </Key>
+          <Property Name="LandingDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Total" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LandingClick">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Txid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Affid" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PubId" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LandingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LandingSource" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirebackDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Subscriptions" Relationship="Self.FK_Subscription_LandingClicks" FromRole="LandingClicks" ToRole="Subscription" />
+        </EntityType>
+        <EntityType Name="MO">
+          <Key>
+            <PropertyRef Name="mo_id" />
+          </Key>
+          <Property Name="mo_id" Type="Guid" Nullable="false" />
+          <Property Name="txid" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="shortcode" Type="Int32" />
+          <Property Name="keyword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="message" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="action" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="mo_origin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateReceived" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SubscriberId" Type="Guid" />
+          <Property Name="MtPurpose" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MessagePartsCount" Type="Int32" Nullable="false" />
+          <Property Name="DateSent" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DNs" Relationship="Self.FK_dbo_DN_dbo_MT_mt_id" FromRole="MT" ToRole="DN" />
+          <NavigationProperty Name="Subscription" Relationship="Self.FK_MT_Subscription" FromRole="MT" ToRole="Subscription" />
+        </EntityType>
+        <EntityType Name="Subscription">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SubscriptionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TerminationDate" Type="DateTime" Precision="3" />
+          <Property Name="SubMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TerminationMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubscribedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TerminatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RenewalDate" Type="DateTime" Precision="3" />
+          <Property Name="RenewalSent" Type="Boolean" />
+          <Property Name="IsSubscribed" Type="Boolean" Nullable="false" />
+          <Property Name="TelcoId" Type="Int32" Nullable="false" />
+          <Property Name="Msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Txid" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastCharegDate" Type="DateTime" Precision="3" />
+          <Property Name="IsCampaign" Type="Boolean" Nullable="false" />
+          <Property Name="LandingClicksId" Type="Guid" />
+          <Property Name="Code" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LandingClick" Relationship="Self.FK_Subscription_LandingClicks" FromRole="Subscription" ToRole="LandingClicks" />
+          <NavigationProperty Name="MTs" Relationship="Self.FK_MT_Subscription" FromRole="Subscription" ToRole="MT" />
+          <NavigationProperty Name="TelcoInfo" Relationship="Self.FK_dbo_Subscription_dbo_TelcoInfo_telcoId" FromRole="Subscription" ToRole="TelcoInfo" />
+          <NavigationProperty Name="SubscriptionHistories" Relationship="Self.FK_SubscriptionHistory_Subscription" FromRole="Subscription" ToRole="SubscriptionHistory" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_Subscription" FromRole="Subscription" ToRole="Transactions" />
+        </EntityType>
+        <EntityType Name="SubscriptionHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="SubscriptionId" Type="Guid" Nullable="false" />
+          <Property Name="SubscriptionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TerminationDate" Type="DateTime" Precision="3" />
+          <Property Name="SubMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TerminationMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SubscribedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TerminatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RenewalDate" Type="DateTime" Precision="3" />
+          <Property Name="RenewalSent" Type="Boolean" />
+          <Property Name="IsSubscribed" Type="Boolean" Nullable="false" />
+          <Property Name="TelcoId" Type="Int32" Nullable="false" />
+          <Property Name="Msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Txid" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="LastCharegDate" Type="DateTime" Precision="3" />
+          <Property Name="IsCampaign" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LandingClicksId" Type="Guid" />
+          <NavigationProperty Name="Subscription" Relationship="Self.FK_SubscriptionHistory_Subscription" FromRole="SubscriptionHistory" ToRole="Subscription" />
+          <NavigationProperty Name="TelcoInfo" Relationship="Self.FK_SubscriptionHistory_TelcoInfo" FromRole="SubscriptionHistory" ToRole="TelcoInfo" />
+        </EntityType>
+        <EntityType Name="TelcoInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="TelcoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Aggregator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Shear" Type="Decimal" Precision="18" Scale="5" Nullable="false" />
+          <Property Name="Code" Type="Int32" />
+          <Property Name="CMId" Type="Int32" />
+          <NavigationProperty Name="Subscriptions" Relationship="Self.FK_dbo_Subscription_dbo_TelcoInfo_telcoId" FromRole="TelcoInfo" ToRole="Subscription" />
+          <NavigationProperty Name="SubscriptionHistories" Relationship="Self.FK_SubscriptionHistory_TelcoInfo" FromRole="TelcoInfo" ToRole="SubscriptionHistory" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_TelcoInfo" FromRole="TelcoInfo" ToRole="Transactions" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="SubscriptionId" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TelcoId" Type="Int32" Nullable="false" />
+          <Property Name="RequestID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Msisdn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="OperatorID" Type="Int32" Nullable="false" />
+          <Property Name="ChannelID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subscription" Relationship="Self.FK_Transactions_Subscription" FromRole="Transactions" ToRole="Subscription" />
+          <NavigationProperty Name="TelcoInfo" Relationship="Self.FK_Transactions_TelcoInfo" FromRole="Transactions" ToRole="TelcoInfo" />
+          <NavigationProperty Name="TransactionType" Relationship="Self.FK_dbo_Transactions_dbo_TransactionTypes_TypeID" FromRole="Transactions" ToRole="TransactionTypes" />
+        </EntityType>
+        <EntityType Name="TransactionSummary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TelcoId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="UniqueMSISDNCampaign" Type="Int32" Nullable="false" />
+          <Property Name="CampaignOptIn" Type="Int32" Nullable="false" />
+          <Property Name="CampaignOptInPercentage" Type="Double" Nullable="false" />
+          <Property Name="UniqueMSISDNPortal" Type="Int32" Nullable="false" />
+          <Property Name="PortalOptIn" Type="Int32" Nullable="false" />
+          <Property Name="TotalActiveSubscribers" Type="Int32" Nullable="false" />
+          <Property Name="DailyCampaignOptOut" Type="Int32" Nullable="false" />
+          <Property Name="TotalCampaignOptOut" Type="Int32" Nullable="false" />
+          <Property Name="DailyPortalOptOut" Type="Int32" Nullable="false" />
+          <Property Name="TotalPortalOptOut" Type="Int32" Nullable="false" />
+          <Property Name="TotalInactiveSubscribers" Type="Int32" Nullable="false" />
+          <Property Name="Renewal" Type="Int32" Nullable="false" />
+          <Property Name="Revenue" Type="Int32" Nullable="false" />
+          <Property Name="RenewalCampaign" Type="Int32" Nullable="false" />
+          <Property Name="RenewalPortal" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransactionType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Transactions" Relationship="Self.FK_dbo_Transactions_dbo_TransactionTypes_TypeID" FromRole="TransactionTypes" ToRole="Transactions" />
+        </EntityType>
+        <Association Name="FK_dbo_DN_dbo_MT_mt_id">
+          <End Role="MT" Type="Self.MT" Multiplicity="1" />
+          <End Role="DN" Type="Self.DN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MT">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DN">
+              <PropertyRef Name="mt_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subscription_LandingClicks">
+          <End Role="LandingClicks" Type="Self.LandingClick" Multiplicity="0..1" />
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LandingClicks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="LandingClicksId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MT_Subscription">
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="0..1" />
+          <End Role="MT" Type="Self.MT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscription">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MT">
+              <PropertyRef Name="SubscriberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Subscription_dbo_TelcoInfo_telcoId">
+          <End Role="TelcoInfo" Type="Self.TelcoInfo" Multiplicity="1" />
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TelcoInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Subscription">
+              <PropertyRef Name="TelcoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionHistory_Subscription">
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="1" />
+          <End Role="SubscriptionHistory" Type="Self.SubscriptionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscription">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubscriptionHistory">
+              <PropertyRef Name="SubscriptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Subscription">
+          <End Role="Subscription" Type="Self.Subscription" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscription">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="SubscriptionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubscriptionHistory_TelcoInfo">
+          <End Role="TelcoInfo" Type="Self.TelcoInfo" Multiplicity="1" />
+          <End Role="SubscriptionHistory" Type="Self.SubscriptionHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TelcoInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SubscriptionHistory">
+              <PropertyRef Name="TelcoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_TelcoInfo">
+          <End Role="TelcoInfo" Type="Self.TelcoInfo" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TelcoInfo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="TelcoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Transactions_dbo_TransactionTypes_TypeID">
+          <End Role="TransactionTypes" Type="Self.TransactionType" Multiplicity="1" />
+          <End Role="Transactions" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transactions">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KSAPlatGamesMobimindEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DailySubInfoes" EntityType="Self.DailySubInfo" />
+          <EntitySet Name="DNs" EntityType="Self.DN" />
+          <EntitySet Name="Landings" EntityType="Self.Landing" />
+          <EntitySet Name="LandingClicks" EntityType="Self.LandingClick" />
+          <EntitySet Name="MOes" EntityType="Self.MO" />
+          <EntitySet Name="MTs" EntityType="Self.MT" />
+          <EntitySet Name="Subscriptions" EntityType="Self.Subscription" />
+          <EntitySet Name="SubscriptionHistories" EntityType="Self.SubscriptionHistory" />
+          <EntitySet Name="TelcoInfoes" EntityType="Self.TelcoInfo" />
+          <EntitySet Name="Transactions" EntityType="Self.Transaction" />
+          <EntitySet Name="TransactionSummaries" EntityType="Self.TransactionSummary" />
+          <EntitySet Name="TransactionTypes" EntityType="Self.TransactionType" />
+          <AssociationSet Name="FK_dbo_DN_dbo_MT_mt_id" Association="Self.FK_dbo_DN_dbo_MT_mt_id">
+            <End Role="MT" EntitySet="MTs" />
+            <End Role="DN" EntitySet="DNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subscription_LandingClicks" Association="Self.FK_Subscription_LandingClicks">
+            <End Role="LandingClicks" EntitySet="LandingClicks" />
+            <End Role="Subscription" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MT_Subscription" Association="Self.FK_MT_Subscription">
+            <End Role="Subscription" EntitySet="Subscriptions" />
+            <End Role="MT" EntitySet="MTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Subscription_dbo_TelcoInfo_telcoId" Association="Self.FK_dbo_Subscription_dbo_TelcoInfo_telcoId">
+            <End Role="TelcoInfo" EntitySet="TelcoInfoes" />
+            <End Role="Subscription" EntitySet="Subscriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionHistory_Subscription" Association="Self.FK_SubscriptionHistory_Subscription">
+            <End Role="Subscription" EntitySet="Subscriptions" />
+            <End Role="SubscriptionHistory" EntitySet="SubscriptionHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Subscription" Association="Self.FK_Transactions_Subscription">
+            <End Role="Subscription" EntitySet="Subscriptions" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubscriptionHistory_TelcoInfo" Association="Self.FK_SubscriptionHistory_TelcoInfo">
+            <End Role="TelcoInfo" EntitySet="TelcoInfoes" />
+            <End Role="SubscriptionHistory" EntitySet="SubscriptionHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_TelcoInfo" Association="Self.FK_Transactions_TelcoInfo">
+            <End Role="TelcoInfo" EntitySet="TelcoInfoes" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Transactions_dbo_TransactionTypes_TypeID" Association="Self.FK_dbo_Transactions_dbo_TransactionTypes_TypeID">
+            <End Role="TransactionTypes" EntitySet="TransactionTypes" />
+            <End Role="Transactions" EntitySet="Transactions" />
+          </AssociationSet>
+          <FunctionImport Name="GetRevenueReport" IsComposable="true" ReturnType="Collection(KSAPlatGamesMobimindModel.GetRevenueReport_Result)">
+            <Parameter Name="From" Mode="In" Type="DateTime" />
+            <Parameter Name="To" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SubscriptionInfo" IsComposable="true" ReturnType="Collection(KSAPlatGamesMobimindModel.SubscriptionInfo_Result)">
+            <Parameter Name="From" Mode="In" Type="DateTime" />
+            <Parameter Name="To" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="TransactionSummaryReport" IsComposable="true" ReturnType="Collection(KSAPlatGamesMobimindModel.TransactionSummaryReport_Result)">
+            <Parameter Name="From" Mode="In" Type="DateTime" />
+            <Parameter Name="To" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="AddLanding" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KSAPlatGamesMobimindModelStoreContainer" CdmEntityContainer="KSAPlatGamesMobimindEntities">
+          <EntitySetMapping Name="DailySubInfoes">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.DailySubInfo">
+              <MappingFragment StoreEntitySet="DailySubInfo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="telcoName" ColumnName="telcoName" />
+                <ScalarProperty Name="totalCanceled" ColumnName="totalCanceled" />
+                <ScalarProperty Name="totalRegistered" ColumnName="totalRegistered" />
+                <ScalarProperty Name="totalRenewal" ColumnName="totalRenewal" />
+                <ScalarProperty Name="totalActive" ColumnName="totalActive" />
+                <ScalarProperty Name="shortcode" ColumnName="shortcode" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="dailyCampaignSubRevenue" ColumnName="dailyCampaignSubRevenue" />
+                <ScalarProperty Name="dailyCampaignRenRevenue" ColumnName="dailyCampaignRenRevenue" />
+                <ScalarProperty Name="dailyCampaignRevenue" ColumnName="dailyCampaignRevenue" />
+                <ScalarProperty Name="dailyPortalSubRevenue" ColumnName="dailyPortalSubRevenue" />
+                <ScalarProperty Name="dailyPortalRenRevenue" ColumnName="dailyPortalRenRevenue" />
+                <ScalarProperty Name="dailyPortalRevenue" ColumnName="dailyPortalRevenue" />
+                <ScalarProperty Name="dailySubRevenue" ColumnName="dailySubRevenue" />
+                <ScalarProperty Name="dailyRenRevenue" ColumnName="dailyRenRevenue" />
+                <ScalarProperty Name="dailyRevenue" ColumnName="dailyRevenue" />
+                <ScalarProperty Name="totalInActive" ColumnName="totalInActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DNs">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.DN">
+              <MappingFragment StoreEntitySet="DN">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="dn_id" ColumnName="dn_id" />
+                <ScalarProperty Name="mt_id" ColumnName="mt_id" />
+                <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+                <ScalarProperty Name="shortcode" ColumnName="shortcode" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="dnType" ColumnName="dnType" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="statusCode" ColumnName="statusCode" />
+                <ScalarProperty Name="statusMsg" ColumnName="statusMsg" />
+                <ScalarProperty Name="dateReceived" ColumnName="dateReceived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Landings">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.Landing">
+              <MappingFragment StoreEntitySet="Landing">
+                <ScalarProperty Name="LandingDate" ColumnName="LandingDate" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LandingClicks">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.LandingClick">
+              <MappingFragment StoreEntitySet="LandingClicks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Txid" ColumnName="Txid" />
+                <ScalarProperty Name="Affid" ColumnName="Affid" />
+                <ScalarProperty Name="PubId" ColumnName="PubId" />
+                <ScalarProperty Name="LandingDate" ColumnName="LandingDate" />
+                <ScalarProperty Name="LandingSource" ColumnName="LandingSource" />
+                <ScalarProperty Name="FirebackDate" ColumnName="FirebackDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MOes">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.MO">
+              <MappingFragment StoreEntitySet="MO">
+                <ScalarProperty Name="mo_id" ColumnName="mo_id" />
+                <ScalarProperty Name="txid" ColumnName="txid" />
+                <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+                <ScalarProperty Name="shortcode" ColumnName="shortcode" />
+                <ScalarProperty Name="keyword" ColumnName="keyword" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="mo_origin" ColumnName="mo_origin" />
+                <ScalarProperty Name="dateReceived" ColumnName="dateReceived" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MTs">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.MT">
+              <MappingFragment StoreEntitySet="MT">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+                <ScalarProperty Name="MtPurpose" ColumnName="MtPurpose" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="MessagePartsCount" ColumnName="MessagePartsCount" />
+                <ScalarProperty Name="DateSent" ColumnName="DateSent" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="msisdn" ColumnName="msisdn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscriptions">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.Subscription">
+              <MappingFragment StoreEntitySet="Subscription">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SubscriptionDate" ColumnName="SubscriptionDate" />
+                <ScalarProperty Name="TerminationDate" ColumnName="TerminationDate" />
+                <ScalarProperty Name="SubMethod" ColumnName="SubMethod" />
+                <ScalarProperty Name="TerminationMethod" ColumnName="TerminationMethod" />
+                <ScalarProperty Name="SubscribedBy" ColumnName="SubscribedBy" />
+                <ScalarProperty Name="TerminatedBy" ColumnName="TerminatedBy" />
+                <ScalarProperty Name="RenewalDate" ColumnName="RenewalDate" />
+                <ScalarProperty Name="RenewalSent" ColumnName="RenewalSent" />
+                <ScalarProperty Name="IsSubscribed" ColumnName="IsSubscribed" />
+                <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+                <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+                <ScalarProperty Name="Txid" ColumnName="Txid" />
+                <ScalarProperty Name="LastCharegDate" ColumnName="LastCharegDate" />
+                <ScalarProperty Name="IsCampaign" ColumnName="IsCampaign" />
+                <ScalarProperty Name="LandingClicksId" ColumnName="LandingClicksId" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscriptionHistories">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.SubscriptionHistory">
+              <MappingFragment StoreEntitySet="SubscriptionHistory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SubscriptionId" ColumnName="SubscriptionId" />
+                <ScalarProperty Name="SubscriptionDate" ColumnName="SubscriptionDate" />
+                <ScalarProperty Name="TerminationDate" ColumnName="TerminationDate" />
+                <ScalarProperty Name="SubMethod" ColumnName="SubMethod" />
+                <ScalarProperty Name="TerminationMethod" ColumnName="TerminationMethod" />
+                <ScalarProperty Name="SubscribedBy" ColumnName="SubscribedBy" />
+                <ScalarProperty Name="TerminatedBy" ColumnName="TerminatedBy" />
+                <ScalarProperty Name="RenewalDate" ColumnName="RenewalDate" />
+                <ScalarProperty Name="RenewalSent" ColumnName="RenewalSent" />
+                <ScalarProperty Name="IsSubscribed" ColumnName="IsSubscribed" />
+                <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+                <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+                <ScalarProperty Name="Txid" ColumnName="Txid" />
+                <ScalarProperty Name="LastCharegDate" ColumnName="LastCharegDate" />
+                <ScalarProperty Name="IsCampaign" ColumnName="IsCampaign" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="LandingClicksId" ColumnName="LandingClicksId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TelcoInfoes">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.TelcoInfo">
+              <MappingFragment StoreEntitySet="TelcoInfo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TelcoName" ColumnName="TelcoName" />
+                <ScalarProperty Name="Aggregator" ColumnName="Aggregator" />
+                <ScalarProperty Name="Shear" ColumnName="Shear" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CMId" ColumnName="CMId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transactions">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.Transaction">
+              <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="SubscriptionId" ColumnName="SubscriptionId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+                <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionSummaries">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.TransactionSummary">
+              <MappingFragment StoreEntitySet="TransactionSummary">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UniqueMSISDNCampaign" ColumnName="UniqueMSISDNCampaign" />
+                <ScalarProperty Name="CampaignOptIn" ColumnName="CampaignOptIn" />
+                <ScalarProperty Name="CampaignOptInPercentage" ColumnName="CampaignOptInPercentage" />
+                <ScalarProperty Name="UniqueMSISDNPortal" ColumnName="UniqueMSISDNPortal" />
+                <ScalarProperty Name="PortalOptIn" ColumnName="PortalOptIn" />
+                <ScalarProperty Name="TotalActiveSubscribers" ColumnName="TotalActiveSubscribers" />
+                <ScalarProperty Name="DailyCampaignOptOut" ColumnName="DailyCampaignOptOut" />
+                <ScalarProperty Name="TotalCampaignOptOut" ColumnName="TotalCampaignOptOut" />
+                <ScalarProperty Name="DailyPortalOptOut" ColumnName="DailyPortalOptOut" />
+                <ScalarProperty Name="TotalPortalOptOut" ColumnName="TotalPortalOptOut" />
+                <ScalarProperty Name="TotalInactiveSubscribers" ColumnName="TotalInactiveSubscribers" />
+                <ScalarProperty Name="Renewal" ColumnName="Renewal" />
+                <ScalarProperty Name="Revenue" ColumnName="Revenue" />
+                <ScalarProperty Name="RenewalCampaign" ColumnName="RenewalCampaign" />
+                <ScalarProperty Name="RenewalPortal" ColumnName="RenewalPortal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionTypes">
+            <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.TransactionType">
+              <MappingFragment StoreEntitySet="TransactionTypes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="KSAPlatGamesMobimindModel.Store.GetRevenueReport" FunctionImportName="GetRevenueReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KSAPlatGamesMobimindModel.GetRevenueReport_Result">
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="TelcoID" ColumnName="TelcoID" />
+                <ScalarProperty Name="TelcoName" ColumnName="TelcoName" />
+                <ScalarProperty Name="TotalDaily" ColumnName="TotalDaily" />
+                <ScalarProperty Name="FIShare" ColumnName="FIShare" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="KSAPlatGamesMobimindModel.Store.SubscriptionInfo" FunctionImportName="SubscriptionInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KSAPlatGamesMobimindModel.SubscriptionInfo_Result">
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="Telco" ColumnName="Telco" />
+                <ScalarProperty Name="dailysubscribers" ColumnName="dailysubscribers" />
+                <ScalarProperty Name="totalsubscribers" ColumnName="totalsubscribers" />
+                <ScalarProperty Name="subscribers_percentage" ColumnName="subscribers_percentage" />
+                <ScalarProperty Name="dailyunsubscribers" ColumnName="dailyunsubscribers" />
+                <ScalarProperty Name="totalunsubscribers" ColumnName="totalunsubscribers" />
+                <ScalarProperty Name="unsubscribers_percentage" ColumnName="unsubscribers_percentage" />
+                <ScalarProperty Name="msisdn_removal" ColumnName="msisdn_removal" />
+                <ScalarProperty Name="active_non_unique_sub" ColumnName="active_non_unique_sub" />
+                <ScalarProperty Name="active_unique_sub" ColumnName="active_unique_sub" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="KSAPlatGamesMobimindModel.Store.TransactionSummaryReport" FunctionImportName="TransactionSummaryReport">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="KSAPlatGamesMobimindModel.TransactionSummaryReport_Result">
+                <ScalarProperty Name="Telco" ColumnName="Telco" />
+                <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+                <ScalarProperty Name="campaign_unique_msisdn_visited" ColumnName="campaign_unique_msisdn_visited" />
+                <ScalarProperty Name="campaign_opt_in" ColumnName="campaign_opt_in" />
+                <ScalarProperty Name="campaign_opt_in_percentage" ColumnName="campaign_opt_in_percentage" />
+                <ScalarProperty Name="campaign_opt_out" ColumnName="campaign_opt_out" />
+                <ScalarProperty Name="portal_unique_msisdn_visited" ColumnName="portal_unique_msisdn_visited" />
+                <ScalarProperty Name="portal_opt_in" ColumnName="portal_opt_in" />
+                <ScalarProperty Name="portal_opt_in_percentage" ColumnName="portal_opt_in_percentage" />
+                <ScalarProperty Name="portal_opt_out" ColumnName="portal_opt_out" />
+                <ScalarProperty Name="total_renewed_subscribers" ColumnName="total_renewed_subscribers" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AddLanding" FunctionName="KSAPlatGamesMobimindModel.Store.AddLanding" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

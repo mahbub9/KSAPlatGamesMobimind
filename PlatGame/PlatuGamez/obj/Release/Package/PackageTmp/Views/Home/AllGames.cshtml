@@ -1,0 +1,174 @@
+﻿@*@model ICollection<ForestInterActive.CategoryAndGamesModel>*@
+@model ICollection<ForestInterActive.GameListModel>
+
+@{
+    ViewBag.Banner = "banner_game.jpg";
+    ViewBag.Title1 = "YOU'RE JUST";
+    ViewBag.Title2 = "ONE CLICK AWAY";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var categories = (ICollection<ForestInterActive.CategoryAndGamesModel>)ViewBag.Category;
+}
+
+<!-- Content -->
+
+@foreach (var category in categories)
+{
+    <section class="featured-games overflow-hidden">
+        <main class="container">
+            <header class="featured-games-header">
+                <h1 class="featured-games-title d-flex align-items-baseline justify-content-between">
+                    <span>@category.CategoryName</span>
+                    @*<a href="#" class="font-size-sm">see more</a>*@
+                </h1>
+            </header>
+            <div id="owlCtgCarouselOne" class="owl-carousel gm-categories owl-loaded owl-drag">
+                <div class="owl-stage-outer">
+                    <div class="owl-stage" style="transform: translate3d(-1400px, 0px, 0px); transition: all 0s ease 0s; width: 5600px;">
+
+                        @foreach (var item in Model)
+                        {
+
+                            if (item.CategoryID == category.CategoryID)
+                            {
+                                <div class="owl-item cloned" style="width: 270px; margin-right: 10px;">
+                                    <div class="card featured-games-card">
+                                        <a href="@Url.Action("GameDetail", "Home",new { gameId=item.GameID,categoryName=category.CategoryName})"><img src="@item.GameLogo" class="card-img-top" alt="Game logo"></a>
+                                        <div class="card-body">
+                                            <h4 class="card-title text-truncate"><a href="@Url.Action("GameDetail", "Home",new { gameId=item.GameID,categoryName=category.CategoryName})">@item.GameTitle</a></h4>
+
+                                            <div class="card-ratings mt-1">
+                                                <img class="img-fluid" src="~/Content/images/5_star.png" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+
+                    </div>
+                </div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div>
+            </div>
+        </main>
+    </section>
+}
+
+<!-- Scripts -->
+
+<script type="text/javascript" src="~/js/owl.carousel.min.js"></script>
+
+<script type="text/javascript" src="~/js/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        /**
+         * Carousel for Games page
+         * For each Game category
+         */
+
+        $('.owl-carousel.gm-categories').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            dots: false,
+            responsive: {
+                0: { stagePadding: 20, items: 3, center: true },
+                576: { items: 3 },
+                1000: { items: 4 }
+            }
+        });
+
+        $('.owl-carousel.owl-partners').owlCarousel({
+            stagePadding: 50,
+            loop: true,
+            margin: 0,
+            nav: true,
+            autoWidth: true,
+            dots: false,
+            responsive: {
+                0: {
+                    nav: false,
+                    stagePadding: 0,
+                    items: 3,
+                    autoWidth: true,
+                    center: true
+                },
+                576: { items: 3 },
+                1000: { items: 5 }
+            }
+        });
+
+        /**
+         * Carousel for Home page
+         * For featured games
+         */
+
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 0,
+            nav: false,
+            dots: false,
+            responsive: {
+                0: { items: 3, center: true },
+                576: { items: 3 },
+                1000: { items: 6 }
+            }
+        });
+
+        $('.carousel').on('slide.bs.carousel', function (e) {
+            var $e = $(e.relatedTarget);
+            var idx = $e.index();
+            var itemsPerSlide = 5;
+            var $carouselInner = $(this).find('.carousel-inner');
+            var $carousels = $(this).find('.carousel-item');
+            var totalItems = $($carousels).length;
+
+            if (idx >= totalItems - (itemsPerSlide - 1)) {
+                var it = itemsPerSlide - (totalItems - idx);
+                for (var i = 0; i < it; i++) {
+                    // append slides to end
+                    if (e.direction == "left") {
+                        $($carousels).eq(i).appendTo($($carouselInner));
+                    }
+                    else {
+                        $($carousels).eq(0).appendTo($($carouselInner));
+                    }
+                }
+            }
+        });
+
+        $(document).on("click", "#barMenuKey", function (e) {
+            $._isMenuVisible = (e.which === 1) ?
+                toggleMenu(true) : false;
+            // Stop bubbling;
+            return false;
+        });
+
+        $(document).on("click keydown", function (e) {
+            $._isMenuVisible = ($._isMenuVisible === true) ?
+                (e.key === "Escape" || e.which === 1) ?
+                    toggleMenu(false) : true
+                : false;
+        });
+
+        function toggleMenu(_visibility) {
+            // Initialization
+            _visibility = _visibility || false;
+            // On/Off Dropdown;
+            $("#barDropDown").fadeToggle('fast');
+            // Change bar icon;
+            $("#barMenuKey")
+                .find('i.fas')
+                .toggleClass('fa-times');
+            // On/Off backdrop overlay;
+            $('body').toggleClass('dropdown-overlay');
+            // return Dropdown visibility state;
+            return _visibility;
+        }
+    });
+
+    $(document).on('change', '#locale', function () {
+        window.location.href = $(this).val();
+    });
+
+</script>

@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="PlatGameEntities">
+    <EntitySetMapping Name="Billings">
+      <EntityTypeMapping TypeName="Model.Billing">
+        <MappingFragment StoreEntitySet="Billing">
+          <ScalarProperty Name="BillingID" ColumnName="BillingID" />
+          <ScalarProperty Name="StatusID" ColumnName="StatusID" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="SubscriberID" ColumnName="SubscriberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conversions">
+      <EntityTypeMapping TypeName="Model.Conversion">
+        <MappingFragment StoreEntitySet="Conversion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="Txid" ColumnName="Txid" />
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DnSummaryReports">
+      <EntityTypeMapping TypeName="Model.DnSummaryReport">
+        <MappingFragment StoreEntitySet="DnSummaryReport">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="dn_total" ColumnName="dn_total" />
+          <ScalarProperty Name="dn_first_subscribe" ColumnName="dn_first_subscribe" />
+          <ScalarProperty Name="dn_first_success_bill" ColumnName="dn_first_success_bill" />
+          <ScalarProperty Name="dn_success_renewal" ColumnName="dn_success_renewal" />
+          <ScalarProperty Name="dn_failed_first_bill" ColumnName="dn_failed_first_bill" />
+          <ScalarProperty Name="dn_unsubscribe" ColumnName="dn_unsubscribe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FireBackLogs">
+      <EntityTypeMapping TypeName="Model.FireBackLog">
+        <MappingFragment StoreEntitySet="FireBackLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="Txid" ColumnName="Txid" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LandingIPs">
+      <EntityTypeMapping TypeName="Model.LandingIP">
+        <MappingFragment StoreEntitySet="LandingIP">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IP" ColumnName="IP" />
+          <ScalarProperty Name="txid" ColumnName="txid" />
+          <ScalarProperty Name="affId" ColumnName="affId" />
+          <ScalarProperty Name="pubId" ColumnName="pubId" />
+          <ScalarProperty Name="pageid" ColumnName="pageid" />
+          <ScalarProperty Name="PageUrl" ColumnName="PageUrl" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StatusMsgs">
+      <EntityTypeMapping TypeName="Model.StatusMsg">
+        <MappingFragment StoreEntitySet="StatusMsg">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscriptions">
+      <EntityTypeMapping TypeName="Model.Subscription">
+        <MappingFragment StoreEntitySet="Subscription">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="IsSubscriped" ColumnName="IsSubscriped" />
+          <ScalarProperty Name="SubscriptionDate" ColumnName="SubscriptionDate" />
+          <ScalarProperty Name="UnSubscriptionDate" ColumnName="UnSubscriptionDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="txid" ColumnName="txid" />
+          <ScalarProperty Name="IsFirstBillingCharged" ColumnName="IsFirstBillingCharged" />
+          <ScalarProperty Name="TelcoID" ColumnName="TelcoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscriptionHistories">
+      <EntityTypeMapping TypeName="Model.SubscriptionHistory">
+        <MappingFragment StoreEntitySet="SubscriptionHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscriptionSummaryReports">
+      <EntityTypeMapping TypeName="Model.SubscriptionSummaryReport">
+        <MappingFragment StoreEntitySet="SubscriptionSummaryReport">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+          <ScalarProperty Name="dailysubscribers" ColumnName="dailysubscribers" />
+          <ScalarProperty Name="totalsubscribers" ColumnName="totalsubscribers" />
+          <ScalarProperty Name="subscribers_percentage" ColumnName="subscribers_percentage" />
+          <ScalarProperty Name="dailyunsubscribers" ColumnName="dailyunsubscribers" />
+          <ScalarProperty Name="totalunsubscribers" ColumnName="totalunsubscribers" />
+          <ScalarProperty Name="unsubscribers_percentage" ColumnName="unsubscribers_percentage" />
+          <ScalarProperty Name="active_non_unique_sub" ColumnName="active_non_unique_sub" />
+          <ScalarProperty Name="active_unique_sub" ColumnName="active_unique_sub" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Telcoes">
+      <EntityTypeMapping TypeName="Model.Telco">
+        <MappingFragment StoreEntitySet="Telco">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TelcoId" ColumnName="TelcoId" />
+          <ScalarProperty Name="CMTelcoId" ColumnName="CMTelcoId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FIShare" ColumnName="FIShare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Transactions">
+      <EntityTypeMapping TypeName="Model.Transaction">
+        <MappingFragment StoreEntitySet="Transaction">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+          <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+          <ScalarProperty Name="OperatorID" ColumnName="OperatorID" />
+          <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="AffId" ColumnName="AffId" />
+          <ScalarProperty Name="PubId" ColumnName="PubId" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionSummaryReports">
+      <EntityTypeMapping TypeName="Model.TransactionSummaryReport">
+        <MappingFragment StoreEntitySet="TransactionSummaryReport">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+          <ScalarProperty Name="campaign_unique_msisdn_visited" ColumnName="campaign_unique_msisdn_visited" />
+          <ScalarProperty Name="campaign_opt_in" ColumnName="campaign_opt_in" />
+          <ScalarProperty Name="campaign_opt_in_percentage" ColumnName="campaign_opt_in_percentage" />
+          <ScalarProperty Name="campaign_opt_out" ColumnName="campaign_opt_out" />
+          <ScalarProperty Name="portal_unique_msisdn_visited" ColumnName="portal_unique_msisdn_visited" />
+          <ScalarProperty Name="portal_opt_in" ColumnName="portal_opt_in" />
+          <ScalarProperty Name="portal_opt_in_percentage" ColumnName="portal_opt_in_percentage" />
+          <ScalarProperty Name="portal_opt_out" ColumnName="portal_opt_out" />
+          <ScalarProperty Name="total_renewed_subscribers" ColumnName="total_renewed_subscribers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AddDNSummary" FunctionName="Model.Store.AddDNSummary" />
+    <FunctionImportMapping FunctionImportName="AddSubscriptionSummary" FunctionName="Model.Store.AddSubscriptionSummary" />
+    <FunctionImportMapping FunctionImportName="AddTransactionSummary" FunctionName="Model.Store.AddTransactionSummary" />
+    <FunctionImportMapping FunctionImportName="DNRealTime" FunctionName="Model.Store.DNRealTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.DNRealTime_Result">
+          <ScalarProperty Name="MSISDN" ColumnName="MSISDN" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DNSummary" FunctionName="Model.Store.DNSummary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.DNSummary_Result">
+          <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+          <ScalarProperty Name="dn_total" ColumnName="dn_total" />
+          <ScalarProperty Name="dn_first_subscribe" ColumnName="dn_first_subscribe" />
+          <ScalarProperty Name="dn_first_success_bill" ColumnName="dn_first_success_bill" />
+          <ScalarProperty Name="dn_success_renewal" ColumnName="dn_success_renewal" />
+          <ScalarProperty Name="dn_failed_first_bill" ColumnName="dn_failed_first_bill" />
+          <ScalarProperty Name="dn_unsubscribe" ColumnName="dn_unsubscribe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RevenueReport" FunctionName="Model.Store.RevenueReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.RevenueReport_Result">
+          <ScalarProperty Name="TelcoID" ColumnName="TelcoID" />
+          <ScalarProperty Name="TelcoName" ColumnName="TelcoName" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="TotalDaily" ColumnName="TotalDaily" />
+          <ScalarProperty Name="FIShare" ColumnName="FIShare" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SubInfo_RealTime" FunctionName="Model.Store.SubInfo_RealTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.SubInfo_RealTime_Result">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SubscriptionSummary" FunctionName="Model.Store.SubscriptionSummary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.SubscriptionSummary_Result">
+          <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+          <ScalarProperty Name="dailysubscribers" ColumnName="dailysubscribers" />
+          <ScalarProperty Name="totalsubscribers" ColumnName="totalsubscribers" />
+          <ScalarProperty Name="subscribers_percentage" ColumnName="subscribers_percentage" />
+          <ScalarProperty Name="dailyunsubscribers" ColumnName="dailyunsubscribers" />
+          <ScalarProperty Name="totalunsubscribers" ColumnName="totalunsubscribers" />
+          <ScalarProperty Name="unsubscribers_percentage" ColumnName="unsubscribers_percentage" />
+          <ScalarProperty Name="active_unique_sub" ColumnName="active_unique_sub" />
+          <ScalarProperty Name="active_non_unique_sub" ColumnName="active_non_unique_sub" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TransactionSummary" FunctionName="Model.Store.TransactionSummary">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.TransactionSummary_Result">
+          <ScalarProperty Name="TransDate" ColumnName="TransDate" />
+          <ScalarProperty Name="campaign_unique_msisdn_visited" ColumnName="campaign_unique_msisdn_visited" />
+          <ScalarProperty Name="campaign_opt_in" ColumnName="campaign_opt_in" />
+          <ScalarProperty Name="campaign_opt_in_percentage" ColumnName="campaign_opt_in_percentage" />
+          <ScalarProperty Name="campaign_opt_out" ColumnName="campaign_opt_out" />
+          <ScalarProperty Name="portal_unique_msisdn_visited" ColumnName="portal_unique_msisdn_visited" />
+          <ScalarProperty Name="portal_opt_in" ColumnName="portal_opt_in" />
+          <ScalarProperty Name="portal_opt_in_percentage" ColumnName="portal_opt_in_percentage" />
+          <ScalarProperty Name="portal_opt_out" ColumnName="portal_opt_out" />
+          <ScalarProperty Name="total_renewed_subscribers" ColumnName="total_renewed_subscribers" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="TransInfo_RealTime" FunctionName="Model.Store.TransInfo_RealTime">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.TransInfo_RealTime_Result">
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Msisdn" ColumnName="Msisdn" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="ClientTokens">
+      <EntityTypeMapping TypeName="Model.ClientToken">
+        <MappingFragment StoreEntitySet="ClientToken">
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="LifeSpanInSec" ColumnName="LifeSpanInSec" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

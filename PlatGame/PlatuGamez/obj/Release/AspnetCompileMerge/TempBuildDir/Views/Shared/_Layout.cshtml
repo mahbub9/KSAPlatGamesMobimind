@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <title>Plat Games</title>
+
+    @* ------ FAVICON *@
+    <link rel="apple-touch-icon" sizes="180x180" href="~/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/favicon-16x16.png">
+    <link rel="manifest" href="~/img/manifest.json">
+    <link rel="mask-icon" href="~/img/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-TileImage" content="~/img/mstile-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link href="~/css/vendor.css" rel="stylesheet">
+    <link href="~/css/app.css" rel="stylesheet">
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/css/jquery-ui.min.css" rel="stylesheet">
+
+    @* --google font *@
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
+
+    @*<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">*@
+
+    <style>
+        .placeholder::-webkit-input-placeholder {
+            /* WebKit, Blink, Edge */
+            color: white;
+        }
+
+        .placeholder:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: white;
+            opacity: 1;
+        }
+
+        .placeholder::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: white;
+            opacity: 1;
+        }
+
+        .placeholder:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: white;
+        }
+    </style>
+   
+</head>
+<body screen_capture_injected="true" data-new-gr-c-s-check-loaded="14.984.0" data-gr-ext-installed="">
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="fixed-top position-absolute container-fluid py-2 py-sm-3">
+            <div class="row">
+                <div class="col d-flex justify-content-start">
+                    <a href="#" id="barMenuKey" class="site-bar-menu mr-3 mr-sm-3">
+                        <i class="fas fa-bars fa-2x font-size-xs mt-2"></i>
+                    </a>
+                    <a class="site-logo mt-1" href="@Url.Action("Index","Home")">
+                        <img class="img-fluid site-logo-img" src="~/Content/images/PlatGames_Logo.png" alt="PlatGames">
+                    </a>
+                    @*<input style="margin-bottom:11px;background:none;color: white;width: 50%;border-block-start: none;border-left: none;border-right: none;border-block-end-color: grey;" class="ml-4 placeholder ui-autocomplete-input" id="searchInput" placeholder="Search" autocomplete="off">*@
+                </div>
+
+
+
+                <ul class="nav justify-content-end">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-user-circle mr-1"></i> <span> Log In</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="bar-dropdown collapse" id="barDropDown">
+            <div class="bar-dropdown-header">
+                <img class="img-fluid site-logo-img" src="~/Content/images/PlatGames_Logo.png" alt="PlatGames">
+                <div class="nav-lang float-right d-sm-none">
+                    <!-- test link -->
+                    <!--<a href="#" class="btn btn-link btn-sm" aria-label="en">
+                        <img class="img-fluid" src="~/Goama_Games_files/icon-translate.svg" alt="Translate">
+                        English
+                    </a>-->
+                </div>
+            </div>
+            <nav class="bar-dropdown-menu">
+                <ul class="nav flex-column fa-ul">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="@Url.Action("Index", "Home")" tabindex="-1" aria-disabled="true">
+                            <span class="fa-li"><i class="fas fa-home"></i></span>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("AllGames", "Home")" tabindex="-1" aria-disabled="true">
+                            <span class="fa-li"><i class="fas fa-play"></i></span>Games
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Pricing", "Home")" tabindex="-1" aria-disabled="true">
+                            <span class="fa-li"><i class="fas fa-gem"></i></span>Pricing
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="@Url.Action("Faq", "Home")" tabindex="-1" aria-disabled="true">
+                            <span class="fa-li"><i class="fas fa-comment-dots"></i></span>FAQ
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " href="@Url.Action("Contact", "Home")" tabindex="-1" aria-disabled="true">
+                            <span class="fa-li"><i class="fas fa-address-book"></i></span>Contact Us
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Select Country -->
+                @*<div class="nav-country d-sm-none">
+                    <h6 class="title">Select Country</h6>
+                    <ul class="nav flex-column fa-ul">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link ">
+                                <span class="fa-li"><i class="fas fa-globe"></i></span> Global
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link ">
+                                <span class="fa-li"><i class="fas fa-globe"></i></span> Bangladesh
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">
+                                <span class="fa-li"><i class="fas fa-globe"></i></span> Malaysia
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link ">
+                                <span class="fa-li"><i class="fas fa-globe"></i></span> Myanmar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link ">
+                                <span class="fa-li"><i class="fas fa-globe"></i></span> Cambodia
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link ">
+                                <span class="fa-li"><i class="fas fa-globe"></i></span> India
+                            </a>
+                        </li>
+                    </ul>
+                </div>*@
+            </nav>
+        </nav>
+    </header>
+    <section class="main-banner">
+        <main id="mainBanner" class="main-banner">
+            <div class="banner-inner h-100">
+                <div class="banner-item h-100">
+                    <img src="~/Content/images/@ViewBag.Banner" class="banner-img d-block h-100 w-auto" alt="Table Top Racing">
+                    <div class="banner-caption">
+                        <header class="banner-caption-header">
+                            <h1 class="h1 text-uppercase">
+                                <br>
+                                <span class="d-block font-weight-light" style="font-family: 'Kalam', cursive;">@ViewBag.Title1 </span>
+                                <span class="font-weight-bold" style="font-family: 'Kalam', cursive;">@ViewBag.Title2</span>
+                            </h1>
+                            <a class="btn btn-primary btn-lg mb-4" href="@Url.Action("AllGames","Home")"><span class="d-block m-0">Play Now</span></a>
+                        </header>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </section>
+    @*<div class="container body-content">*@
+    @RenderBody()
+    @*<hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>*@
+    <!-- Footer -->
+    <footer class="footer pb-3 pb-sm-5">
+        <section class="container">
+
+            <section class="row align-items-end pt-3 pt-sm-5">
+                <aside class="col-sm">
+                    <div class="row mb-3 mb-sm-0">
+                        <nav class="col">
+                            <h6>GO|GAMES</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                <li><a href="@Url.Action("AllGames","Home")">Games</a></li>
+                                <li><a href="@Url.Action("Pricing","Home")">Pricing</a></li>
+                                <li><a href="@Url.Action("Faq","Home")">FAQ</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="col">
+                            <h6>COMPANY</h6>
+                            <ul class="list-unstyled">
+                                <li><a href="@Url.Action("Contact","Home")">Contact Us</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="col">
+                            <h6>MORE</h6>
+                            <ul class="list-unstyled">
+
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms and Conditions</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+                <aside class="col-sm">
+                    <section class="row align-items-end">
+                    </section>
+                </aside>
+            </section>
+            <section class="row">
+                <nav class="col-sm-12">
+                    <ul class="list-inline global-links d-none d-sm-block">
+                        <li class="list-inline-item"><a href="#">Melayu</a></li>
+                        <li class="list-inline-item"><a href="#">English</a></li>
+
+                    </ul>
+                    @*<ul class="list-inline global-links d-sm-none">
+                        <li class="list-inline-item"><a href="#" class="">Global</a></li>
+                        <li class="list-inline-item"><a href="#" class="">Bangladesh</a></li>
+                        <li class="list-inline-item"><a href="#" class="active">Malaysia</a></li>
+                        <li class="list-inline-item"><a href="#" class="">Myanmar</a></li>
+                        <li class="list-inline-item"><a href="#" class="">Cambodia</a></li>
+                        <li class="list-inline-item"><a href="#" class="">India</a></li>
+                    </ul>*@
+                </nav>
+            </section>
+            <hr class="divider-line">
+            <section class="row">
+                <section class="col-sm-12">
+                    <span>© 2020  PlatGames</span><br>
+                    <span>All rights reserved</span><br>
+                </section>
+            </section>
+        </section>
+    </footer>
+    @*</div>*@
+
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)*@
+</body>
+</html>
