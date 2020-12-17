@@ -27,7 +27,6 @@ namespace PlatGames.BL
             subscription.Msisdn = callBackModel.MSISDN;
             subscription.IsSubscribed = true;
             subscription.LastCharegDate = DateTime.Now;
-            //subscription.RenewalDate = DateTime.Now.AddDays(7); Check with team lead if below logic is correct
             subscription.RenewalDate = (callBackModel.ChannelID==1209||callBackModel.ChannelID==1230)? DateTime.Now.AddDays(30):DateTime.Now.AddDays(1);
             subscription.RenewalSent = false;
             subscription.SubMethod = callBackModel.Lsource.StartsWith("portal") ? "portal" : "campaign";
@@ -58,6 +57,7 @@ namespace PlatGames.BL
         public Result InsertSubscrbtionHistory(Subscription subscription)
         {
             SubscriptionHistory subscriptionHistory = new SubscriptionHistory();
+            subscriptionHistory.Id = Guid.NewGuid();
             subscriptionHistory.IsCampaign = subscription.IsCampaign;
             subscriptionHistory.IsSubscribed = subscription.IsSubscribed;
             subscriptionHistory.LastCharegDate = subscription.LastCharegDate;
@@ -85,14 +85,16 @@ namespace PlatGames.BL
             transaction =
             new Transaction
             {
+                Id = Guid.NewGuid(),
                 Msisdn = createResponce.MSISDN,
-                ChannelID=createResponce.ChannelID,
-                OperatorID=createResponce.OperatorID,
-                Price=createResponce.Price.HasValue?createResponce.Price.Value/100:0,
-                RequestID=createResponce.RequestID,
-                SubscriptionId=subscription.Id,
-                TelcoId= telcoid,
-                TypeID=type
+                ChannelID = createResponce.ChannelID,
+                OperatorID = createResponce.OperatorID,
+                Price = createResponce.Price.HasValue ? createResponce.Price.Value / 100 : 0,
+                RequestID = createResponce.RequestID,
+                SubscriptionId = subscription.Id,
+                TelcoId = telcoid,
+                TypeID = type,
+                Date = DateTime.Now
             };
 
             transaction.Price = createResponce.Price.HasValue?createResponce.Price.Value/100:0;

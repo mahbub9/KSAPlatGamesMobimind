@@ -55,7 +55,33 @@ namespace PlatGame.Api
                 switch (requestModel.STATUS)
                 {
                     case "ACT-SB"://subscribe only
-                    case "FSC-BL"://first billing
+                        //Added by Mukhlisur.Need to double check the logic.
+                        bool isfirstSub = false;
+                        if (subscription != null)
+                        {
+                            //subscription = new Subscription();
+                            isfirstSub = true;
+                        }
+                        //if (!string.IsNullOrEmpty(requestModel.txid))
+                        //{
+                        //    landingClick = subscriptionLogic.AddLanding(requestModel); //check this line.
+                        //}
+                        Result resultSub = subscriptionLogic.InsertSubscrbtion(requestModel, subscription, telcoid);
+
+                        if (resultSub.State == ResultState.Success && requestModel.STATUS == "ACT-SB")
+                        {
+                            subscriptionLogic.InsertSubscrbtionHistory(subscription);
+                            Result transresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
+                            ForestInterActive.CampaignManager.CampaignSubscitpion(subscription.Txid, (transresult.Data as Transaction).Id.ToString(), isfirstSub, requestModel.Price.HasValue ? requestModel.Price.Value : 0);
+                        }
+                        else
+                        {
+                            Result transresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
+                        }
+                        return "OK";
+
+
+                    case "FSC-BL"://first billing tested and worked
                        
                         bool isfirst = false;
                         if (subscription == null)
@@ -74,9 +100,8 @@ namespace PlatGame.Api
                             int renewal = (requestModel.ChannelID == 1209 || requestModel.ChannelID == 1230) ? 30 : 1;
                             subscriptionLogic.InsertSubscrbtionHistory(subscription);
                             Result transresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
-                            //ForestInterActive.CampaignManager.ScrabberFireBack(subscription.Txid, subscription.Msisdn, "TTusr", telco.CMId.Value, "",7); check about this logic
                             ForestInterActive.CampaignManager.ScrabberFireBack(subscription.Txid, subscription.Msisdn, "TTusr", telco.CMId.Value, "", renewal);
-                            ForestInterActive.CampaignManager.CampaignSubscitpion(subscription.Txid, (transresult.Data as PlatGames.DAL.Transaction).Id.ToString(), isfirst, 25);
+                            ForestInterActive.CampaignManager.CampaignSubscitpion(subscription.Txid, (transresult.Data as Transaction).Id.ToString(), isfirst, requestModel.Price.Value);
                         }
                         else
                         {
@@ -84,6 +109,24 @@ namespace PlatGame.Api
                         }
                         return "OK";
                     case "BLD-SB"://unsub
+                        //added by mukhlisur
+                        if (subscription == null)
+                        {
+                            Logs.Log(HttpContext.Current.Request.RawUrl, "MsisdnNotfound");
+                            return "OK";
+                        }
+                        Result unsubResult = subscriptionLogic.UnSubscrbtion(requestModel, subscription, "API", telcoid);
+                        if (unsubResult.State == ResultState.Success)
+                        {
+                            new SubscriptionLogic().InsertSubscrbtionHistory(subscription);
+                            Result deleteresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
+                            if (deleteresult.State == ResultState.Success)
+                            {
+                                ForestInterActive.CampaignManager.CampaignUnsubscitpion(subscription.Txid, (deleteresult.Data as Transaction).Id.ToString());
+                            }
+                        }
+                        return "OK";
+
                     case "RCL-SB"://recycle
                         if (subscription == null)
                         {
@@ -97,12 +140,15 @@ namespace PlatGame.Api
                             Result deleteresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
                             if (deleteresult.State == ResultState.Success)
                             {
-                                ForestInterActive.CampaignManager.CampaignUnsubscitpion(subscription.Txid, (deleteresult.Data as PlatGames.DAL.Transaction).Id.ToString());
+                                ForestInterActive.CampaignManager.CampaignUnsubscitpion(subscription.Txid, (deleteresult.Data as Transaction).Id.ToString());
                             }
                         }
                         return "OK";
-                    case "FFL-BL"://filed to bill first time
-                    case "RFL-BL"://filed renewal
+                    
+                    case "FFL-BL"://failed to bill first time
+                        return "OK";
+                    
+                    case "RFL-BL"://failed renewal
                         if (subscription == null)
                         {
                             Logs.Log(HttpContext.Current.Request.RawUrl, "MsisdnNotfound");
@@ -115,12 +161,13 @@ namespace PlatGame.Api
                             Result deleteresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
                         }
                             return "OK";
+                    
                     case "RSC-BL":
                         Result renewalresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
                         if (renewalresult.State == ResultState.Success)
                         {
                             new SubscriptionLogic().ActiveSubscriber(subscription);
-                            ForestInterActive.CampaignManager.CampaignRenewal(subscription.Txid, (renewalresult.Data as PlatGames.DAL.Transaction).Id.ToString(), requestModel.Price.HasValue?requestModel.Price.Value:0);
+                            ForestInterActive.CampaignManager.CampaignRenewal(subscription.Txid, (renewalresult.Data as PlatGames.DAL.Transaction).Id.ToString(), requestModel.Price.HasValue ? requestModel.Price.Value : 0);
                         }
                         return "OK";
                     default:

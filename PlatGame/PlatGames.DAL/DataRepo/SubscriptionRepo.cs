@@ -57,6 +57,7 @@ namespace PlatGames.DAL.DataRepo
         {
             if (Obj.Id==null||Obj.Id==Guid.Empty)
             {
+                Obj.Id = Guid.NewGuid();
                 return Insert(Obj);
             }
             return Update(Obj);
@@ -74,7 +75,7 @@ namespace PlatGames.DAL.DataRepo
                         LContext.SaveChanges();
                         return new Result(ResultState.Success, "Insert Successfully", Obj);
                     }
-                    return new Result(ResultState.Fail, "Dublicate", Obj);
+                    return new Result(ResultState.Fail, "Duplicate", Obj);
                 }
             }
             catch (Exception ex)
