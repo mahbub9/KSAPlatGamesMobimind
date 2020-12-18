@@ -219,10 +219,18 @@ namespace PlatGame.Controllers
             string msisdn = ticket.Name; // UserName (in this case msisdn)
 
             var subscription = new SubscriptionRepo().FindBy(x => x.Msisdn == msisdn).FirstOrDefault();
+            var transaction = new TransactionsRepo().FindBy(x => x.SubscriptionId == subscription.Id).FirstOrDefault();
+            var telco = new TelcoInfoRepo().FindBy(x => x.Id == subscription.TelcoId).FirstOrDefault();
 
             if (subscription.IsSubscribed)
             {
                 CallBackModel callbackModel = new CallBackModel();
+                callbackModel.STATUS = "BLD-SB";
+                callbackModel.MSISDN = "";
+                callbackModel.ChannelID = transaction.ChannelID;
+                callbackModel.OperatorID = Convert.ToInt32(telco.Code);
+                callbackModel.Price = 0;
+                callbackModel.RequestID = "00001"; //provided by MobiMind
                 //UnSubscribe
 
                 Result subscrbtionresult = new SubscriptionLogic().UnSubscrbtion(callbackModel, subscription, "Portal", subscription.TelcoId);
@@ -249,8 +257,7 @@ namespace PlatGame.Controllers
                     //Logout from portal
                     FormsAuthentication.SignOut();
 
-                    var transaction = new TransactionsRepo().FindBy(x => x.SubscriptionId == subscription.Id).FirstOrDefault();
-                    var telco = new TelcoInfoRepo().FindBy(x => x.Id == subscription.TelcoId).FirstOrDefault();
+                   
                     // Call MobiMind API to UnSub
                     callbackModel.User = "5C12475E2D6841D7891BF5F6C38D90E2";
                     callbackModel.Password = "viicd6Q9";

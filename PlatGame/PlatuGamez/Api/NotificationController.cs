@@ -81,7 +81,7 @@ namespace PlatGame.Api
                         return "OK";
 
 
-                    case "FSC-BL"://first billing tested and worked
+                    case "FSC-BL"://first billing
                        
                         bool isfirst = false;
                         if (subscription == null)
