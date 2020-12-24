@@ -49,13 +49,14 @@ namespace PlatGames.DAL.DataRepo
             }
             catch (Exception ex)
             {
+
                 Logs.Log(ex);
                 return null;
             }
         }
         public Result Save(Subscription Obj)
         {
-            if (Obj.Id==null||Obj.Id==Guid.Empty)
+            if (Obj.Id == null || Obj.Id == Guid.Empty)
             {
                 Obj.Id = Guid.NewGuid();
                 return Insert(Obj);
