@@ -1,4 +1,6 @@
-﻿using PlatGames.DAL.DataRepo;
+﻿using ForestInterActive;
+using PlatGames.DAL;
+using PlatGames.DAL.DataRepo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,7 @@ namespace PlatGame.Controllers
         private bool IsSubscribed(string msisdn)
         {
             var subscriber = new SubscriptionRepo().FindBy(x => x.Msisdn == msisdn && x.IsSubscribed == true).FirstOrDefault();
+            
             return subscriber != null ? true : false;
         }
 
@@ -32,6 +35,6 @@ namespace PlatGame.Controllers
             FormsAuthentication.SignOut();
 
             return RedirectToAction("Index", "Home");
-        }        
+        }
     }
 }

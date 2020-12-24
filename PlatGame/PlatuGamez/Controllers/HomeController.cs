@@ -1,17 +1,12 @@
 ﻿using ForestInterActive;
-using Newtonsoft.Json.Linq;
 using PlatGames.BL;
 using PlatGames.DAL;
 using PlatGames.DAL.DataRepo;
 using PlatGames.Models;
 using PlatGames.PlatGames.DAL.DataRepo;
-using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -63,6 +58,18 @@ namespace PlatGame.Controllers
 
         public ActionResult Index(string txid = null, string affid = null, string pubid = null, string pageid = null)
         {
+            //test log for db connection issue
+            //try
+            //{
+            //    var db = new KSAPlatGamesMobimindEntities();
+            //    var telco = db.TelcoInfoes.ToList();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Logs.Log(ex.InnerException.Message, "Telco");
+            //    //Logs.Log(ex);
+            //}
+
             if (!string.IsNullOrEmpty(txid) && !string.IsNullOrEmpty(affid) &&
                 !string.IsNullOrEmpty(pubid) && !string.IsNullOrEmpty(pageid))
             {
@@ -199,6 +206,7 @@ namespace PlatGame.Controllers
             return View();
         }
 
+        [Route("success")]
         public ActionResult Success(string CGMSISDN, string CGOperatorID, string CGStatus)
         {
             if (CGStatus == "0" || CGStatus == "5")

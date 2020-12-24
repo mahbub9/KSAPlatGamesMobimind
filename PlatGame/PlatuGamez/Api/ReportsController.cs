@@ -1,10 +1,12 @@
-﻿using PlatGames.DAL;
+﻿using ForestInterActive;
+using PlatGames.DAL;
 using PlatGames.DAL.DataRepo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 
 namespace PlatGame.Api
@@ -23,12 +25,21 @@ namespace PlatGame.Api
                 return BadRequest("Missing Parameters");
             }
 
-            List<GetRevenueReport_Result> revenueReport = reportRepository.GetRevenueReport(FromDt, ToDt);
-            if (telcoId.HasValue && telcoId !=0 && revenueReport!=null)
+            try
             {
-                revenueReport = revenueReport.Where(c => c.TelcoID == telcoId).ToList();
+                List<GetRevenueReport_Result> revenueReport = reportRepository.GetRevenueReport(FromDt, ToDt);
+                if (telcoId.HasValue && telcoId != 0 && revenueReport != null)
+                {
+                    revenueReport = revenueReport.Where(c => c.TelcoID == telcoId).ToList();
+                }
+                return Ok(revenueReport);
+
             }
-            return Ok(revenueReport);
+            catch (Exception ex)
+            {
+                ForestInterActive.Logs.Log(ex,"RevReport");
+            }
+            return Ok();
         }
 
         [Route("GetTransactionSummaryReport")]
