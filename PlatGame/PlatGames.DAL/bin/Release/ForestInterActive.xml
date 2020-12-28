@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ForestInterActive</name>
+    </assembly>
+    <members>
+        <member name="M:ForestInterActive.CampaignManager.ScrabberFireBack(System.String,System.String,System.String,System.Int32,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)">
+            <summary>
+            ScrabberFireBack
+            </summary>
+            <param name="txid">txid</param>
+            <param name="msisdn">msisdn</param>
+            <param name="FirebackUrl">FirebackUrl</param>
+            <param name="FirebackPass"></param>
+            <param name="TelcoID"></param>
+            <param name="keyword"></param>
+            <param name="RenewalPeriod"></param>
+            <param name="RenewalPeriodnd"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CampaignManager.CampaignUnsubscitpion(System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            CampaignUnsubscitpion
+            </summary>
+            <param name="txid">txid</param>
+            <param name="SourceID">SourceID</param>
+            <param name="date">date</param>
+            <param name="Url"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CampaignManager.CampaignSubscitpion(System.String,System.String,System.Boolean,System.Decimal,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            CampaignSubscitpion
+            </summary>
+            <param name="txid">txid</param>
+            <param name="SourceID">SourceID</param>
+            <param name="IsFirst">IsFirst</param>
+            <param name="price">price</param>
+            <param name="date">date</param>
+            <param name="Url"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CampaignManager.CampaignRenewal(System.String,System.String,System.Decimal,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            CampaignRenewal
+            </summary>
+            <param name="txid">txid</param>
+            <param name="SourceID">SourceID</param>
+            <param name="price">price</param>
+            <param name="date">date</param>
+            <param name="Url"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CampaignManager.CampaignMO(System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            CampaignMO
+            </summary>
+            <param name="txid">txid</param>
+            <param name="SourceID">SourceID</param>
+            <param name="date">date</param>
+            <param name="Url"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CampaignManager.CampaignMT(System.String,System.String,System.Int32,System.Decimal,System.Boolean,System.Nullable{System.DateTime},System.String,System.String)">
+            <summary>
+            CampaignMT
+            </summary>
+            <param name="txid">txid</param>
+            <param name="SourceID">SourceID</param>
+            <param name="MTTypeID">MTTypeID</param>
+            <param name="price">price</param>
+            <param name="IsFirst">IsFirst</param>
+            <param name="date">date</param>
+            <param name="Url"></param>
+            <param name="MOSourceID">MOSourceID</param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CampaignManager.CampaignDN(System.String,System.String,System.String,System.Int32,System.Decimal,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            CampaignDN
+            </summary>
+            <param name="txid">txid</param>
+            <param name="SourceID">SourceID</param>
+            <param name="MTSourceID">MTSourceID</param>
+            <param name="DNStatusID">DNStatusID</param>
+            <param name="price">price</param>
+            <param name="date">date</param>
+            <param name="Url"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CampaignManager.GetTXID(System.String,System.Int32,System.String)">
+            <summary>
+            GetTXID
+            </summary>
+            <param name="Msisdn">Msisdn</param>
+            <param name="ProjectID">ProjectID</param>
+            <param name="Url"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CampaignManager.GetEvinaScript(System.String,System.String)">
+            <summary>
+            GetTXID
+            </summary>
+            <param name="txid">txid</param>
+            <param name="Url"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CampaignManager.EvinaValidate(System.String,System.String)">
+            <summary>
+            GetTXID
+            </summary>
+            <param name="Msisdn">Msisdn</param>
+            <param name="ProjectID">ProjectID</param>
+            <param name="Url"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.CacheManager.SetCache(System.String,System.Object,System.Int32)">
+            <summary>
+            add an object to Cache no experation
+            </summary>
+            <param name="key">Cache key</param>
+            <param name="data">object data</param>
+        </member>
+        <member name="M:ForestInterActive.CacheManager.GetCache(System.String)">
+            <summary>
+            get an object from Cache
+            </summary>
+            <param name="key">Cache key</param>
+            <returns>object value</returns>
+        </member>
+        <member name="M:ForestInterActive.CacheManager.ClearCache(System.String)">
+            <summary>
+            clear an object from Cache
+            </summary>
+            <param name="key">Cache key</param>
+        </member>
+        <member name="M:ForestInterActive.CentralizedAdmin.GetCategories(System.Guid,ForestInterActive.ContentType,System.Nullable{System.Guid},System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Get List of Categories with its Content from Centralized Admin
+            </summary>
+            <param name="ServiceID">ServiceID</param>
+            <param name="LanguageID">LanguageID</param>
+            <param name="Skip">Skip</param>
+            <param name="Take">Take</param>
+            <param name="enableCache">set value to false to diable cashing</param>
+            <returns>list of game</returns>
+        </member>
+        <member name="M:ForestInterActive.CentralizedAdmin.GetContent(System.Guid,System.Nullable{System.Guid},System.Boolean)">
+            <summary>
+            Get Content from Centralized Admin
+            </summary>
+            <param name="ID">ContentID</param>
+            <param name="LanguageID">LanguageID</param>
+            <param name="enableCache">set value to false to diable cashing</param>
+            <returns>list of game</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentral.GetGames(System.Int32,System.String,System.String,System.Nullable{System.Int32},System.Int32,System.Int32,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Boolean)">
+            <summary>
+            Get List of Game from Game Central Database
+            </summary>
+            <param name="ProjectID">ProjectID</param>
+            <param name="Category">filter Game list by specific Category</param>
+            <param name="Language">filter Game list by  language</param>
+            <param name="Platform">game paltform 1 for Android/Java, 7 for HTML5</param>
+            <param name="Offset">Offset parameter</param>
+            <param name="Fetch">fetch parameter</param>
+            <param name="enableCash">set value to false to diable cashing</param>
+            <returns>list of game</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentral.GetNextGame(System.Int32,System.String,System.String,System.String,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Get Next Game from Game Central
+            </summary>
+            <param name="ProjectID">ProjectID</param>
+            <param name="GameID">Current Game Id</param>
+            <param name="Category">filter Game  by specific Category</param>
+            <param name="Language">Game language</param>
+            <param name="Platform">game paltform 1 for Android/Java, 7 for HTML5</param>
+            <param name="enableCash">set value to false to diable cashing</param>
+            <returns>game</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentral.GetById(System.String,System.String,System.Boolean)">
+            <summary>
+            get game by Id
+            </summary>
+            <param name="GameID">game Id</param>
+            <param name="enableCash">set value to false to diable cashing</param>
+            <returns>game</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentral.GetCategories(System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Get All Categores with 4 games for each categories
+            </summary>
+            <param name="ProjectID">Filter Games By ProjectId</param>
+            <param name="Language">Get the games with specific language</param>
+            <param name="Platform">game paltform 1 for Android/Java, 7 for HTML5</param>
+            <param name="enableCache">set value to false to diable cashing</param>
+            <returns>list of Categores and its Games</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentral.SearchGames(System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Int32},System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Get List of Game from Game Central Database filter by search Title
+            </summary>
+            <param name="ProjectID">ProjectID</param>
+            <param name="Title">filter Game list by that contains title</param>
+            <param name="Language">filter Game list by  language</param>
+            <param name="Platform">game paltform 1 for Android/Java, 7 for HTML5</param>
+            <param name="Offset">Offset parameter</param>
+            <param name="Fetch">fetch parameter</param>
+            <param name="enableCash">set value to false to diable cashing</param>
+            <returns>list of game</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentralPublic.GetGames(System.Int32,System.String,System.String,System.Nullable{System.Int32},System.Int32,System.Int32,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Boolean)">
+            <summary>
+            Get List of Game from Game Central Database
+            </summary>
+            <param name="ProjectID">ProjectID</param>
+            <param name="Category">filter Game list by specific Category</param>
+            <param name="Language">filter Game list by  language</param>
+            <param name="Platform">game paltform 1 for Android/Java, 7 for HTML5</param>
+            <param name="Offset">Offset parameter</param>
+            <param name="Fetch">fetch parameter</param>
+            <param name="enableCash">set value to false to diable cashing</param>
+            <returns>list of game</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentralPublic.GetNextGame(System.Int32,System.String,System.String,System.String,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Get Next Game from Game Central
+            </summary>
+            <param name="ProjectID">ProjectID</param>
+            <param name="GameID">Current Game Id</param>
+            <param name="Category">filter Game  by specific Category</param>
+            <param name="Language">Game language</param>
+            <param name="Platform">game paltform 1 for Android/Java, 7 for HTML5</param>
+            <param name="enableCash">set value to false to diable cashing</param>
+            <returns>game</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentralPublic.GetById(System.String,System.String,System.Boolean)">
+            <summary>
+            get game by Id
+            </summary>
+            <param name="GameID">game Id</param>
+            <param name="enableCash">set value to false to diable cashing</param>
+            <returns>game</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentralPublic.GetCategories(System.Nullable{System.Int32},System.String,System.Nullable{System.Int32},System.Boolean)">
+            <summary>
+            Get All Categores with 4 games for each categories
+            </summary>
+            <param name="ProjectID">Filter Games By ProjectId</param>
+            <param name="Language">Get the games with specific language</param>
+            <param name="Platform">game paltform 1 for Android/Java, 7 for HTML5</param>
+            <param name="enableCache">set value to false to diable cashing</param>
+            <returns>list of Categores and its Games</returns>
+        </member>
+        <member name="M:ForestInterActive.GameCentralPublic.SearchGames(System.Nullable{System.Int32},System.String,System.String,System.Nullable{System.Int32},System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Get List of Game from Game Central Database filter by search Title
+            </summary>
+            <param name="ProjectID">ProjectID</param>
+            <param name="Title">filter Game list by that contains title</param>
+            <param name="Language">filter Game list by  language</param>
+            <param name="Platform">game paltform 1 for Android/Java, 7 for HTML5</param>
+            <param name="Offset">Offset parameter</param>
+            <param name="Fetch">fetch parameter</param>
+            <param name="enableCash">set value to false to diable cashing</param>
+            <returns>list of game</returns>
+        </member>
+        <member name="M:ForestInterActive.HtmlCallHelper.ScrabberFireBack(System.String,System.String,System.String,System.String)">
+            <summary>
+            ScrabberFireBack
+            </summary>
+            <param name="txid">txid</param>
+            <param name="msisdn">msisdn</param>
+            <param name="FirebackUrl">FirebackUrl</param>
+            <param name="FirebackPass"></param>
+            <returns>if string is null that mean you miss sum parameter other wise you will recive the responce from the Scrabber  </returns>
+        </member>
+        <member name="M:ForestInterActive.HtmlCallHelper.GetJson(System.String)">
+            <summary>
+            Get Json Object from String
+            </summary>
+            <param name="data">string Data</param>
+            <returns>Json Object</returns>
+        </member>
+        <member name="M:ForestInterActive.HtmlCallHelper.GetJsnArray(System.String)">
+            <summary>
+            Get JArray from string
+            </summary>
+            <param name="data">json string</param>
+            <returns>JArray</returns>
+        </member>
+        <member name="M:ForestInterActive.HtmlCallHelper.GetJsnArray(System.String,Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            Get JArray object from json object
+            </summary>
+            <param name="key">array key</param>
+            <param name="parentJson">json object</param>
+            <returns>JArray</returns>
+        </member>
+        <member name="M:ForestInterActive.HtmlCallHelper.HttpGetReq(System.String,System.Int32)">
+            <summary>
+            http Get request
+            </summary>
+            <param name="urlStr">get url</param>
+            <returns>string responce</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ForestInterActive.HtmlCallHelper.HttpPostReq(System.String,System.String,System.String)" -->
+        <member name="M:ForestInterActive.HtmlCallHelper.urlShorter(System.String,System.String,System.Boolean)">
+            <summary>
+            shorten the url using forest url shortner
+            </summary>
+            <param name="projectID">Your projectID in forest url shortner</param>
+            <param name="url">url to be shorten</param>
+            <returns>shorten url</returns>
+        </member>
+        <member name="M:ForestInterActive.HtmlCallHelper.SendEmail(System.String,System.Collections.Generic.List{System.String},System.String,System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            send an email using forest-interactive smtp server
+            </summary>
+            <param name="sender">the sender email set its value null mean the sender will be alert@forest-interactive.com </param>
+            <param name="reciver">list of reciver emails</param>
+            <param name="message">html message body</param>
+            <param name="subject">message subject</param>
+            <param name="Bcc">list of Bcc emails</param>
+            <param name="CC">list of CC emails</param>
+            <returns>true if the message send successfully other wise false</returns>
+        </member>
+        <member name="T:ForestInterActive.SubscriptionInfoReport">
+            <summary>
+            Subscription Info Report (daily Sub info)
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.SubscriptionInfoReport.Telco">
+            <summary>
+            telco name
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.SubscriptionInfoReport.Subscribers_Percentage">
+            <summary>
+            formula: [daily_subscribers] / [total_subscribers]
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.SubscriptionInfoReport.UNSubscribers_Percentage">
+            <summary>
+            formula: [daily_unsubscribers] / [Total_UnSubscribers]
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.SubscriptionInfoReport.Active_Nonunique_Subscribers">
+            <summary>
+            formula: [Total_Subscribers] - [total Total_UnSubscribers]
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.SubscriptionInfoReport.Active_Unique_Subscribers">
+            <summary>
+            total unique active subscribers
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Telco">
+            <summary>
+            telco name
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Unique_MSISDN_visited">
+            <summary>
+            unique MSISDN that visit our online campaign LP daily
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Opt_In">
+            <summary>
+            daily user who subscribes from our online campaign
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Opt_In_Percentage">
+            <summary>
+            formula: [opt in] / [unique MSISDN_visited]
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Opt_Out">
+            <summary>
+            daily user who unsubscribe from our online campaign
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Renewed_Subscribers">
+            <summary>
+            daily # of successfully renewed users who subscribed from online campaign
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Unique_MSISDN_visited_Portal">
+            <summary>
+            unique MSISDN that visit our portal daily
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Opt_In_Portal">
+            <summary>
+            daily user who subscribes from our online Portal
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Opt_In_Percentage_Portal">
+            <summary>
+            formula: [opt in_Portal] / [unique MSISDN_visited_Portal]
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Opt_Out_Portal">
+            <summary>
+            daily user who unsubscribe from our online Portal
+            </summary>
+        </member>
+        <member name="P:ForestInterActive.TransactionSummaryReport.Renewed_Subscribers_Portal">
+            <summary>
+            daily # of successfully renewed users who subscribed from online Portal
+            </summary>
+        </member>
+    </members>
+</doc>

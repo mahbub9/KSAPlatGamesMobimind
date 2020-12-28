@@ -24,6 +24,7 @@ namespace PlatGames.BL
         }
         public Result InsertSubscrbtion(CallBackModel callBackModel, Subscription subscription, int telcoid)
         {
+            subscription.Id = Guid.NewGuid();
             subscription.Msisdn = callBackModel.MSISDN;
             subscription.IsSubscribed = true;
             subscription.LastCharegDate = DateTime.Now;
