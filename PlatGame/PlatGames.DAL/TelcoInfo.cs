@@ -28,6 +28,7 @@ namespace PlatGames.DAL
         public decimal Shear { get; set; }
         public Nullable<int> Code { get; set; }
         public Nullable<int> CMId { get; set; }
+        public Nullable<int> ChannelId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Subscription> Subscriptions { get; set; }

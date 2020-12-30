@@ -147,6 +147,7 @@
           <Property Name="Shear" Type="decimal" Precision="18" Scale="5" Nullable="false" />
           <Property Name="Code" Type="int" />
           <Property Name="CMId" Type="int" />
+          <Property Name="ChannelId" Type="int" />
         </EntityType>
         <EntityType Name="Transactions">
           <Key>
@@ -604,6 +605,7 @@
           <NavigationProperty Name="Subscriptions" Relationship="Self.FK_dbo_Subscription_dbo_TelcoInfo_telcoId" FromRole="TelcoInfo" ToRole="Subscription" />
           <NavigationProperty Name="SubscriptionHistories" Relationship="Self.FK_SubscriptionHistory_TelcoInfo" FromRole="TelcoInfo" ToRole="SubscriptionHistory" />
           <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_TelcoInfo" FromRole="TelcoInfo" ToRole="Transactions" />
+          <Property Name="ChannelId" Type="Int32" />
         </EntityType>
         <EntityType Name="Transaction">
           <Key>
@@ -975,6 +977,7 @@
           <EntitySetMapping Name="TelcoInfoes">
             <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.TelcoInfo">
               <MappingFragment StoreEntitySet="TelcoInfo">
+                <ScalarProperty Name="ChannelId" ColumnName="ChannelId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TelcoName" ColumnName="TelcoName" />
                 <ScalarProperty Name="Aggregator" ColumnName="Aggregator" />

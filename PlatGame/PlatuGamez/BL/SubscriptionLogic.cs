@@ -28,7 +28,7 @@ namespace PlatGames.BL
             subscription.Msisdn = callBackModel.MSISDN;
             subscription.IsSubscribed = true;
             subscription.LastCharegDate = DateTime.Now;
-            subscription.RenewalDate = (callBackModel.ChannelID == 1209 || callBackModel.ChannelID == 1230) ? DateTime.Now.AddDays(30) : DateTime.Now.AddDays(1);
+            subscription.RenewalDate = (callBackModel.ChannelID == 12029 || callBackModel.ChannelID == 12030) ? DateTime.Now.AddDays(30) : DateTime.Now.AddDays(1);
             subscription.RenewalSent = false;
             subscription.SubMethod = callBackModel.Lsource.StartsWith("portal") ? "portal" : "campaign";
             subscription.SubscribedBy = callBackModel.Lsource;

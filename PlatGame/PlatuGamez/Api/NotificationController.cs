@@ -35,9 +35,9 @@ namespace PlatGame.Api
                 }
 
 
-                //ChannelID->1228->STC Daily-> Price: 1
-                //ChannelID->1229->STC Monthly-> Price: 20
-                //ChannelID->1230->Mobily Monthly-> Price: 20
+                //ChannelID->12028->STC Daily-> Price: 1
+                //ChannelID->12029->STC Monthly-> Price: 20
+                //ChannelID->12030->Mobily Monthly-> Price: 20
 
                 TransactionType transactionType = new TransactionTypesRepo().FindBy(c=>c.Code== requestModel.STATUS).FirstOrDefault();
 
@@ -51,7 +51,7 @@ namespace PlatGame.Api
                     return "OK";
                 }
                 Subscription subscription = subscriptionRepo.FindBy(c => c.Msisdn == requestModel.MSISDN).FirstOrDefault();
-                TelcoInfo telco = new TelcoInfoRepo().FindBy(c => c.Code == requestModel.OperatorID).FirstOrDefault();
+                TelcoInfo telco = new TelcoInfoRepo().FindBy(c => c.Code == requestModel.OperatorID && c.ChannelId==requestModel.ChannelID).FirstOrDefault();
                 int telcoid = 1;
                 if (telco != null)
                 {
@@ -102,7 +102,7 @@ namespace PlatGame.Api
 
                         if (result.State == ResultState.Success && requestModel.STATUS == "FSC-BL")
                         {
-                            int renewal = (requestModel.ChannelID == 1209 || requestModel.ChannelID == 1230) ? 30 : 1;
+                            int renewal = (requestModel.ChannelID == 12029 || requestModel.ChannelID == 12030) ? 30 : 1;
                             subscriptionLogic.InsertSubscrbtionHistory(subscription);
                             Result transresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
                             ForestInterActive.CampaignManager.ScrabberFireBack(subscription.Txid, subscription.Msisdn, "TTusr", telco.CMId.Value, "", renewal);

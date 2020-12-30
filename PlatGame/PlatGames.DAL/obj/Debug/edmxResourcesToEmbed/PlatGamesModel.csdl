@@ -189,6 +189,7 @@
     <NavigationProperty Name="Subscriptions" Relationship="Self.FK_dbo_Subscription_dbo_TelcoInfo_telcoId" FromRole="TelcoInfo" ToRole="Subscription" />
     <NavigationProperty Name="SubscriptionHistories" Relationship="Self.FK_SubscriptionHistory_TelcoInfo" FromRole="TelcoInfo" ToRole="SubscriptionHistory" />
     <NavigationProperty Name="Transactions" Relationship="Self.FK_Transactions_TelcoInfo" FromRole="TelcoInfo" ToRole="Transactions" />
+    <Property Name="ChannelId" Type="Int32" />
   </EntityType>
   <EntityType Name="Transaction">
     <Key>

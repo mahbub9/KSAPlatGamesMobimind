@@ -299,7 +299,6 @@
     <Content Include="Views\Home\ThankYou.cshtml" />
     <Content Include="Views\Home\Subscribe.cshtml" />
     <Content Include="Views\Home\TnC.cshtml" />
-    <Content Include="Views\Home\TestView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -144,6 +144,7 @@
     <EntitySetMapping Name="TelcoInfoes">
       <EntityTypeMapping TypeName="KSAPlatGamesMobimindModel.TelcoInfo">
         <MappingFragment StoreEntitySet="TelcoInfo">
+          <ScalarProperty Name="ChannelId" ColumnName="ChannelId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TelcoName" ColumnName="TelcoName" />
           <ScalarProperty Name="Aggregator" ColumnName="Aggregator" />

@@ -142,6 +142,7 @@
     <Property Name="Shear" Type="decimal" Precision="18" Scale="5" Nullable="false" />
     <Property Name="Code" Type="int" />
     <Property Name="CMId" Type="int" />
+    <Property Name="ChannelId" Type="int" />
   </EntityType>
   <EntityType Name="Transactions">
     <Key>
