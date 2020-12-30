@@ -14,10 +14,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 14:29:20</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>12/24/2020 13:51:01</publishTime>
+      <publishTime>12/30/2020 10:45:17</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>12/24/2020 13:51:00</publishTime>
+      <publishTime>12/30/2020 10:45:17</publishTime>
     </File>
     <File Include="bin/Autofac.dll">
       <publishTime>09/28/2020 18:37:00</publishTime>
@@ -65,19 +65,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/21/2019 23:06:16</publishTime>
     </File>
     <File Include="bin/PlatGame.dll">
-      <publishTime>12/24/2020 13:50:39</publishTime>
+      <publishTime>12/30/2020 10:45:02</publishTime>
     </File>
     <File Include="bin/PlatGame.pdb">
-      <publishTime>12/24/2020 13:50:39</publishTime>
+      <publishTime>12/30/2020 10:45:02</publishTime>
     </File>
     <File Include="bin/PlatGames.DAL.dll">
-      <publishTime>12/24/2020 13:50:38</publishTime>
+      <publishTime>12/30/2020 10:45:02</publishTime>
     </File>
     <File Include="bin/PlatGames.DAL.dll.config">
-      <publishTime>12/18/2020 13:51:05</publishTime>
+      <publishTime>12/28/2020 15:10:16</publishTime>
     </File>
     <File Include="bin/PlatGames.DAL.pdb">
-      <publishTime>12/24/2020 13:50:38</publishTime>
+      <publishTime>12/30/2020 10:45:02</publishTime>
     </File>
     <File Include="bin/RestSharp.dll">
       <publishTime>09/30/2020 21:10:06</publishTime>
@@ -380,7 +380,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/16/2020 08:55:14</publishTime>
     </File>
     <File Include="css/vendor.css">
-      <publishTime>12/18/2020 10:16:13</publishTime>
+      <publishTime>12/27/2020 19:55:20</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>11/26/2020 07:17:32</publishTime>
@@ -500,7 +500,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/26/2020 07:20:20</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>12/24/2020 13:50:46</publishTime>
+      <publishTime>12/30/2020 10:45:05</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>11/26/2020 07:17:35</publishTime>
@@ -545,7 +545,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/26/2020 07:17:32</publishTime>
     </File>
     <File Include="Views/Home/AllGames.cshtml">
-      <publishTime>11/30/2020 09:16:43</publishTime>
+      <publishTime>12/29/2020 14:46:25</publishTime>
     </File>
     <File Include="Views/Home/Contact.cshtml">
       <publishTime>11/30/2020 09:07:38</publishTime>
@@ -568,6 +568,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Views/Home/Subscribe.cshtml">
       <publishTime>12/17/2020 15:16:47</publishTime>
     </File>
+    <File Include="Views/Home/TestView.cshtml">
+      <publishTime>12/30/2020 10:09:33</publishTime>
+    </File>
     <File Include="Views/Home/ThankYou.cshtml">
       <publishTime>12/14/2020 09:26:57</publishTime>
     </File>
@@ -578,7 +581,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/26/2020 07:17:32</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/18/2020 10:07:25</publishTime>
+      <publishTime>12/27/2020 20:06:44</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>11/29/2020 19:48:25</publishTime>
@@ -587,7 +590,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/26/2020 07:17:32</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/24/2020 13:50:40</publishTime>
+      <publishTime>12/30/2020 10:45:03</publishTime>
     </File>
     <File Include="webfonts/fa-solid-900.woff2">
       <publishTime>11/26/2020 12:11:25</publishTime>

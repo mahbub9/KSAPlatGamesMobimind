@@ -24,18 +24,18 @@ namespace PlatGames.BL
         }
         public Result InsertSubscrbtion(CallBackModel callBackModel, Subscription subscription, int telcoid)
         {
-            subscription.Id = Guid.NewGuid();
+            //subscription.Id = Guid.NewGuid();
             subscription.Msisdn = callBackModel.MSISDN;
             subscription.IsSubscribed = true;
             subscription.LastCharegDate = DateTime.Now;
-            subscription.RenewalDate = (callBackModel.ChannelID==1209||callBackModel.ChannelID==1230)? DateTime.Now.AddDays(30):DateTime.Now.AddDays(1);
+            subscription.RenewalDate = (callBackModel.ChannelID == 1209 || callBackModel.ChannelID == 1230) ? DateTime.Now.AddDays(30) : DateTime.Now.AddDays(1);
             subscription.RenewalSent = false;
             subscription.SubMethod = callBackModel.Lsource.StartsWith("portal") ? "portal" : "campaign";
             subscription.SubscribedBy = callBackModel.Lsource;
             subscription.SubscriptionDate = DateTime.Now;
             subscription.TelcoId = telcoid;
             subscription.Txid = callBackModel.txid;
-            subscription.IsCampaign = string.IsNullOrEmpty(callBackModel.txid)?false: true;
+            subscription.IsCampaign = string.IsNullOrEmpty(callBackModel.txid) ? false : true;
             return new SubscriptionRepo().Save(subscription);
         }
         public Result ActiveSubscriber(Subscription subscription)
@@ -46,7 +46,7 @@ namespace PlatGames.BL
             subscription.LastCharegDate = DateTime.Now;
             return new SubscriptionRepo().Save(subscription);
         }
-        public Result UnSubscrbtion(CallBackModel createResponce, Subscription subscription,string TerminatedBy,int telcoid)
+        public Result UnSubscrbtion(CallBackModel createResponce, Subscription subscription, string TerminatedBy, int telcoid)
         {
             subscription.IsSubscribed = false;
             subscription.TerminationMethod = createResponce.STATUS;
@@ -76,10 +76,10 @@ namespace PlatGames.BL
             subscriptionHistory.Msisdn = subscription.Msisdn;
             return new SubscriptionHistoryRepo().Insert(subscriptionHistory);
         }
-        public Result InsertTransaction(Subscription subscription, CallBackModel createResponce, int type,int telcoid)
+        public Result InsertTransaction(Subscription subscription, CallBackModel createResponce, int type, int telcoid)
         {
-            Transaction transaction =new TransactionsRepo().FindBy(c => c.SubscriptionId == subscription.Id && c.TypeID == type && DbFunctions.TruncateTime(c.Date) == DbFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
-            if (transaction!=null)
+            Transaction transaction = new TransactionsRepo().FindBy(c => c.SubscriptionId == subscription.Id && c.TypeID == type && DbFunctions.TruncateTime(c.Date) == DbFunctions.TruncateTime(DateTime.Now)).FirstOrDefault();
+            if (transaction != null)
             {
                 return new Result(ResultState.Fail, "Duplicate Transaction", transaction);
             }
@@ -90,7 +90,8 @@ namespace PlatGames.BL
                 Msisdn = createResponce.MSISDN,
                 ChannelID = createResponce.ChannelID,
                 OperatorID = createResponce.OperatorID,
-                Price = createResponce.Price.HasValue ? createResponce.Price.Value / 100 : 0,
+                //Price = createResponce.Price.HasValue ? createResponce.Price.Value / 100 : 0,
+                Price = createResponce.Price.HasValue ? createResponce.Price.Value : 0,
                 RequestID = createResponce.RequestID,
                 SubscriptionId = subscription.Id,
                 TelcoId = telcoid,
@@ -98,12 +99,13 @@ namespace PlatGames.BL
                 Date = DateTime.Now
             };
 
-            transaction.Price = createResponce.Price.HasValue?createResponce.Price.Value/100:0;
+            //transaction.Price = createResponce.Price.HasValue ? createResponce.Price.Value / 100 : 0;
+            transaction.Price = createResponce.Price.HasValue ? createResponce.Price.Value : 0;
             transaction.RequestID = createResponce.RequestID;
             transaction.SubscriptionId = subscription.Id;
-            
+
             transaction.TypeID = type;
-            
+
             transaction.TelcoId = telcoid;
 
             return new TransactionsRepo().Insert(transaction);

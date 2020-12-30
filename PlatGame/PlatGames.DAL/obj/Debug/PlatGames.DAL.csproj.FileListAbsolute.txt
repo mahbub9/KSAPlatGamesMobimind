@@ -16,4 +16,3 @@ D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\obj\Debug\PlatGames.DAL.c
 D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\obj\Debug\PlatGames.DAL.csproj.CopyComplete
 D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\obj\Debug\PlatGames.DAL.dll
 D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\obj\Debug\PlatGames.DAL.pdb
-D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\obj\Debug\PlatGames.DAL.csprojAssemblyReference.cache

@@ -77,6 +77,8 @@ namespace PlatGame.Controllers
             }
 
             GameCentral GC = new GameCentral();
+            //GameCentralPublic GC = new GameCentralPublic();
+           
             var games = GC.GetGames(4004, null, null, 7);
             var data = GC.GetCategories(4004, null, 7);
             return View(games);
@@ -184,6 +186,7 @@ namespace PlatGame.Controllers
             ViewBag.Category = GC.GetCategories(4004, null, 7);
             var games = GC.GetGames(4004, null, null, 7);
             return View(games);
+
         }
 
         public ActionResult Pricing()
@@ -206,7 +209,7 @@ namespace PlatGame.Controllers
             return View();
         }
 
-        [Route("success")]
+        //[Route("success")]
         public ActionResult Success(string CGMSISDN, string CGOperatorID, string CGStatus)
         {
             if (CGStatus == "0" || CGStatus == "5")

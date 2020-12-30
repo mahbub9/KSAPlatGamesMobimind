@@ -16,7 +16,7 @@ namespace PlatGame.Api
         public static readonly string UserName = "5C12475E2D6841D7891BF5F6C38D90E2";
         public static readonly string Password = "viicd6Q9";
         [HttpGet]
-        [Route("api/notification")]
+        //[Route("api/notification")]
         public string CallBack([FromUri] CallBackModel requestModel)
         {
             Logs.Log(HttpContext.Current.Request.RawUrl, "CallBack");
@@ -34,7 +34,11 @@ namespace PlatGame.Api
                     return "Missing Parameter";
                 }
 
-                
+
+                //ChannelID->1228->STC Daily-> Price: 1
+                //ChannelID->1229->STC Monthly-> Price: 20
+                //ChannelID->1230->Mobily Monthly-> Price: 20
+
                 TransactionType transactionType = new TransactionTypesRepo().FindBy(c=>c.Code== requestModel.STATUS).FirstOrDefault();
 
                 SubscriptionRepo subscriptionRepo = new SubscriptionRepo();
