@@ -57,18 +57,7 @@ namespace PlatGame.Controllers
         }
 
         public ActionResult Index(string txid = null, string affid = null, string pubid = null, string pageid = null)
-        {
-            //test log for db connection issue
-            //try
-            //{
-            //    var db = new KSAPlatGamesMobimindEntities();
-            //    var telco = db.TelcoInfoes.ToList();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Logs.Log(ex.InnerException.Message, "Telco");
-            //    //Logs.Log(ex);
-            //}
+        {           
 
             if (!string.IsNullOrEmpty(txid) && !string.IsNullOrEmpty(affid) &&
                 !string.IsNullOrEmpty(pubid) && !string.IsNullOrEmpty(pageid))
@@ -79,8 +68,8 @@ namespace PlatGame.Controllers
             GameCentral GC = new GameCentral();
             //GameCentralPublic GC = new GameCentralPublic();
            
-            var games = GC.GetGames(4004, null, null, 7);
-            var data = GC.GetCategories(4004, null, 7);
+            var games = GC.GetGames(4060, null, null, 1);
+            var data = GC.GetCategories(4060, null, 1);
             return View(games);
 
 
@@ -171,20 +160,28 @@ namespace PlatGame.Controllers
         {
             GameCentral GC = new GameCentral();
             var game = GC.GetById(id, null);
+
+            //using (var client = new WebClient())
+            //{
+            //    client.DownloadFile(game.GameAddress, game.GameTitle);
+            //}
+
             if (game == null)
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.gameurl = game.GameAddress;
-            return View();
+
+            //ViewBag.gameurl = game.GameAddress;
+            //return View();
+            return Redirect(game.GameAddress);
         }
 
         public ActionResult AllGames()
         {
             GameCentral GC = new GameCentral();
             //var category = GC.GetCategories(4004, null, 7);
-            ViewBag.Category = GC.GetCategories(4004, null, 7);
-            var games = GC.GetGames(4004, null, null, 7);
+            ViewBag.Category = GC.GetCategories(4060, null, 1);
+            var games = GC.GetGames(4060, null, null, 1);
             return View(games);
 
         }
