@@ -30,9 +30,9 @@
 
                             if (item.CategoryID == category.CategoryID)
                             {
-                                <div class="owl-item cloned" style="width: 270px; margin-right: 10px;">
+                                <div class="owl-item" style="width: 270px; margin-right: 10px;">
                                     <div class="card featured-games-card">
-                                        <a href="@Url.Action("GameDetail", "Home",new { gameId=item.GameID,categoryName=category.CategoryName})"><img src="@item.GameLogo" class="card-img-top" alt="Game logo"></a>
+                                        <a href="@Url.Action("GameDetail", "Home",new { gameId=item.GameID,categoryName=category.CategoryName})"><img src="@item.GameLogo" class="card-img-top" alt="Game logo" style="height:270px;"></a>
                                         <div class="card-body">
                                             <h4 class="card-title text-truncate"><a href="@Url.Action("GameDetail", "Home",new { gameId=item.GameID,categoryName=category.CategoryName})">@item.GameTitle</a></h4>
 
@@ -71,6 +71,9 @@
             margin: 10,
             nav: false,
             dots: false,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
             responsive: {
                 0: { stagePadding: 20, items: 3, center: true },
                 576: { items: 3 },

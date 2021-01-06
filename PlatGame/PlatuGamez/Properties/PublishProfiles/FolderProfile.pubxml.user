@@ -14,10 +14,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 14:29:20</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>12/30/2020 12:06:18</publishTime>
+      <publishTime>01/05/2021 11:42:13</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>12/30/2020 12:06:17</publishTime>
+      <publishTime>01/05/2021 11:42:13</publishTime>
     </File>
     <File Include="bin/Autofac.dll">
       <publishTime>09/28/2020 18:37:00</publishTime>
@@ -65,10 +65,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>04/21/2019 23:06:16</publishTime>
     </File>
     <File Include="bin/PlatGame.dll">
-      <publishTime>12/30/2020 12:05:59</publishTime>
+      <publishTime>01/05/2021 11:41:54</publishTime>
     </File>
     <File Include="bin/PlatGame.pdb">
-      <publishTime>12/30/2020 12:05:59</publishTime>
+      <publishTime>01/05/2021 11:41:54</publishTime>
     </File>
     <File Include="bin/PlatGames.DAL.dll">
       <publishTime>12/30/2020 12:05:58</publishTime>
@@ -500,7 +500,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/26/2020 07:20:20</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>12/30/2020 12:06:04</publishTime>
+      <publishTime>01/05/2021 11:41:59</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>11/26/2020 07:17:35</publishTime>
@@ -590,7 +590,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/26/2020 07:17:32</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/30/2020 12:06:00</publishTime>
+      <publishTime>01/05/2021 11:41:55</publishTime>
     </File>
     <File Include="webfonts/fa-solid-900.woff2">
       <publishTime>11/26/2020 12:11:25</publishTime>

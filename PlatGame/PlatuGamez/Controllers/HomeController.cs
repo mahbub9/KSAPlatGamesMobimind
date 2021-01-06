@@ -182,6 +182,7 @@ namespace PlatGame.Controllers
             //var category = GC.GetCategories(4004, null, 7);
             ViewBag.Category = GC.GetCategories(4060, null, 1);
             var games = GC.GetGames(4060, null, null, 1);
+                        
             return View(games);
 
         }
