@@ -61,28 +61,35 @@ namespace PlatGame.Api
                 {
                     case "ACT-SB"://subscribe only
                         //Added by Mukhlisur.Need to double check the logic.
-                        bool isfirstSub = false;
-                        if (subscription != null)
-                        {
-                            //subscription = new Subscription();
-                            isfirstSub = true;
-                        }
-                        //if (!string.IsNullOrEmpty(requestModel.txid))
+                        //bool isfirstSub = false;
+                        //if (subscription == null)
                         //{
-                        //    landingClick = subscriptionLogic.AddLanding(requestModel); //check this line.
+                        //    //subscription = new Subscription();
+                        //    isfirstSub = true;
+                        //    subscription = new Subscription();
                         //}
-                        Result resultSub = subscriptionLogic.InsertSubscrbtion(requestModel, subscription, telcoid);
+                        ////if (!string.IsNullOrEmpty(requestModel.txid))
+                        ////{
+                        ////    landingClick = subscriptionLogic.AddLanding(requestModel); //check this line.
+                        ////}
+                        //Result resultSub = subscriptionLogic.InsertSubscrbtion(requestModel, subscription, telcoid);
 
-                        if (resultSub.State == ResultState.Success && requestModel.STATUS == "ACT-SB")
-                        {
-                            subscriptionLogic.InsertSubscrbtionHistory(subscription);
-                            Result transresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
-                            ForestInterActive.CampaignManager.CampaignSubscitpion(subscription.Txid, (transresult.Data as Transaction).Id.ToString(), isfirstSub, requestModel.Price.HasValue ? requestModel.Price.Value : 0);
-                        }
-                        else
-                        {
-                            Result transresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
-                        }
+                        //if (resultSub.State == ResultState.Success && requestModel.STATUS == "ACT-SB")
+                        //{
+                        //    subscriptionLogic.InsertSubscrbtionHistory(subscription);
+                        //    Result transresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
+                        //    ForestInterActive.CampaignManager.CampaignSubscitpion(subscription.Txid, (transresult.Data as Transaction).Id.ToString(), isfirstSub, requestModel.Price.HasValue ? requestModel.Price.Value : 0);
+                        //    if (isfirstSub)
+                        //    {
+                        //        int renewal = (requestModel.ChannelID == 12029 || requestModel.ChannelID == 12030) ? 30 : 1;
+                        //        ForestInterActive.CampaignManager.ScrabberFireBack(subscription.Txid, subscription.Msisdn, "TTusr", telco.CMId.Value, "", renewal);
+                        //    }
+
+                        //}
+                        //else
+                        //{
+                        //    Result transresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
+                        //}
                         return "OK";
 
 

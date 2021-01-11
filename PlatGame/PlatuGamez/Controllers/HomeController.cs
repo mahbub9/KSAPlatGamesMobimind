@@ -294,6 +294,6 @@ namespace PlatGame.Controllers
         {
             var subscriber = new SubscriptionRepo().FindBy(x => x.Msisdn == msisdn && x.IsSubscribed == true).FirstOrDefault();
             return subscriber != null ? true : false;
-        }
+        }        
     }
 }

@@ -3,6 +3,13 @@
     ViewBag.Banner = "banner_contact.jpg";
     ViewBag.Title1 = "GET IN TOUCH";
 }
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZTHGRV"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <!-- Contact -->
 <section class="contact">
     <main class="container">
@@ -40,42 +47,42 @@
 </section>
 
 <script type="text/javascript">
-        $(document).ready(function () {
+    $(document).ready(function () {
 
 
 
-            $(document).on("click", "#barMenuKey", function (e) {
-                $._isMenuVisible = (e.which === 1) ?
-                    toggleMenu(true) : false;
-                // Stop bubbling;
-                return false;
-            });
-
-            $(document).on("click keydown", function (e) {
-                $._isMenuVisible = ($._isMenuVisible === true) ?
-                    (e.key === "Escape" || e.which === 1) ?
-                        toggleMenu(false) : true
-                    : false;
-            });
-
-            function toggleMenu(_visibility) {
-                // Initialization
-                _visibility = _visibility || false;
-                // On/Off Dropdown;
-                $("#barDropDown").fadeToggle('fast');
-                // Change bar icon;
-                $("#barMenuKey")
-                    .find('i.fas')
-                    .toggleClass('fa-times');
-                // On/Off backdrop overlay;
-                $('body').toggleClass('dropdown-overlay');
-                // return Dropdown visibility state;
-                return _visibility;
-            }
+        $(document).on("click", "#barMenuKey", function (e) {
+            $._isMenuVisible = (e.which === 1) ?
+                toggleMenu(true) : false;
+            // Stop bubbling;
+            return false;
         });
 
-        $(document).on('change', '#locale', function () {
-            window.location.href = $(this).val();
+        $(document).on("click keydown", function (e) {
+            $._isMenuVisible = ($._isMenuVisible === true) ?
+                (e.key === "Escape" || e.which === 1) ?
+                    toggleMenu(false) : true
+                : false;
         });
+
+        function toggleMenu(_visibility) {
+            // Initialization
+            _visibility = _visibility || false;
+            // On/Off Dropdown;
+            $("#barDropDown").fadeToggle('fast');
+            // Change bar icon;
+            $("#barMenuKey")
+                .find('i.fas')
+                .toggleClass('fa-times');
+            // On/Off backdrop overlay;
+            $('body').toggleClass('dropdown-overlay');
+            // return Dropdown visibility state;
+            return _visibility;
+        }
+    });
+
+    $(document).on('change', '#locale', function () {
+        window.location.href = $(this).val();
+    });
 
 </script>

@@ -1,7 +1,46 @@
-﻿@{
-    ViewBag.Title = "About";
+﻿@{ 
+    Layout = null;
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PlatGames|Subscribe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:black">
 
-<p>Use this area to provide additional information.</p>
+    <div class="container">
+        <div class="card" style="background-color:black">
+            @*<div class="card card-header text-center">
+                <img src="~/Content/images/PlatGames_logo.png" width="462" height="525" class="text-center" >
+            </div>*@
+            <div class="card-body">
+                <div class="text-center">
+                    <a href="@Url.Action("Index","Home")"><img src="~/Content/images/PlatGames_logo.png" class="img-responsive w-50 h-25"></a>
+
+                </div>
+
+                <p class="card-text text-center" style="font:bold; color:white;">Please choose your operator</p>
+                <div class="container col-sm-4">
+                    <a href="/home/Mobily?txid=@Request.QueryString["txid"]&affid=@Request.QueryString["affid"]&pubid=@Request.QueryString["pubid"]&pageid=@Request.QueryString["pageid"]"><img class="rounded border border-white p-2 mb-1" src="~/Content/images/Mobily_logo.png" width="80" height="50" alt="Telco Logo" option="2">&nbsp;&nbsp;&nbsp; 20 SAR/Month</a>
+
+                </div>
+                <div class="container col-sm-4">
+                    <a href="/home/StcDaily?txid=@Request.QueryString["txid"]&affid=@Request.QueryString["affid"]&pubid=@Request.QueryString["pubid"]&pageid=@Request.QueryString["pageid"]"><img class="rounded border border-white p-2 mb-1" src="~/Content/images/stc_logo.png" width="80" height="50" alt="Telco Logo" option="3">&nbsp;&nbsp;&nbsp; 1 SAR/Day</a>
+
+                </div>
+                <div class="container col-sm-4">
+                    <a href="/home/StcMonthly?txid=@Request.QueryString["txid"]&affid=@Request.QueryString["affid"]&pubid=@Request.QueryString["pubid"]&pageid=@Request.QueryString["pageid"]"><img class="rounded border border-white p-2" src="~/Content/images/stc_logo.png" width="80" height="50" alt="Telco Logo" option="3">&nbsp;&nbsp;&nbsp; 20 SAR/Month</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

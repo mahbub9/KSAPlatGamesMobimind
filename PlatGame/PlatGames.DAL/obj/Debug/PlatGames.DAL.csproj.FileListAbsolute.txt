@@ -12,6 +12,7 @@ D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\bin\Debug\ForestInterActi
 D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\bin\Debug\ForestInterActive.xml
 D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\bin\Debug\LinqKit.xml
 D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\bin\Debug\Newtonsoft.Json.xml
+D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\obj\Debug\PlatGames.DAL.csprojAssemblyReference.cache
 D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\obj\Debug\PlatGames.DAL.csproj.CoreCompileInputs.cache
 D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\obj\Debug\PlatGames.DAL.csproj.CopyComplete
 D:\zForest\KSAPlatGamesMobimind\PlatGame\PlatGames.DAL\obj\Debug\PlatGames.DAL.dll
