@@ -25,8 +25,15 @@ namespace PlatGame.Controllers
 
         private bool IsSubscribed(string msisdn)
         {
-            var subscriber = new SubscriptionRepo().FindBy(x => x.Msisdn == msisdn && x.IsSubscribed == true).FirstOrDefault();
-            
+            string phoneNo = string.Empty;
+            int length = msisdn.Length;
+            if (length >= 9)
+            {
+                phoneNo = string.Concat("966", msisdn.Substring(length - 9, 9));
+            }
+
+            var subscriber = new SubscriptionRepo().FindBy(x => x.Msisdn == phoneNo && x.IsSubscribed == true).FirstOrDefault();
+
             return subscriber != null ? true : false;
         }
 

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LinqKit;
 using System.Linq.Expressions;
+using System.Data.Entity;
 
 namespace PlatGames.DAL.DataRepo
 {
@@ -198,6 +199,21 @@ namespace PlatGames.DAL.DataRepo
             {
                 return (from c in LContext.Transactions.AsExpandable() select c).Where(GetWhere(search)).Count();
             }
+            catch (Exception ex)
+            {
+                Logs.Log(ex);
+                return 0;
+            }
+        }
+
+        public int GetDailySubscription()
+        {
+            try
+            {
+                int totalSub = LContext.Transactions.Count(t => DbFunctions.TruncateTime(t.Date) == DbFunctions.TruncateTime(DateTime.Now) && t.TypeID == 10);
+                return totalSub;
+            }
+
             catch (Exception ex)
             {
                 Logs.Log(ex);

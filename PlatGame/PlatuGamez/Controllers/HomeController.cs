@@ -90,6 +90,15 @@ namespace PlatGame.Controllers
         }
         public ActionResult StcDaily(string txid, string affid, string pubid, string pageid)
         {
+            //
+            int dailySub = new SubscriptionLogic().GetDailySubscriberNumber();
+
+            if (dailySub > 400)
+            {
+                return Redirect("https://www.google.com/");
+            }
+            //
+
             //http://galaxylp.mobi-mind.net/?Id=1317,b1,966,2695,860,,0,42001,12028
             string[] MMParam = new string[] { "1317", "b1", "966", "2695", "860", "0", "42001", "12028" };
             string RedirectUrl = ProccessLanding(txid, affid, pubid, pageid, MMParam);
@@ -99,6 +108,14 @@ namespace PlatGame.Controllers
 
         public ActionResult StcMonthly(string txid, string affid, string pubid, string pageid)
         {
+            //
+            int dailySub = new SubscriptionLogic().GetDailySubscriberNumber();
+
+            if (dailySub > 400)
+            {
+                return Redirect("https://www.google.com/");
+            }
+            //
             //http://galaxylp.mobi-mind.net/?Id=1317,b1,966,2695,860,,0,42001,12029
             string[] MMParam = new string[] { "1317", "b1", "966", "2695", "860", "0", "42001", "12029" };
             string RedirectUrl = ProccessLanding(txid, affid, pubid, pageid, MMParam);
@@ -122,7 +139,7 @@ namespace PlatGame.Controllers
                !string.IsNullOrEmpty(pubid) && !string.IsNullOrEmpty(pageid))
             {
                 Lsource = "campaign";
-                AppendCMInfo = $"&Lsource={Lsource}" + AppendCMInfo;
+                //AppendCMInfo = $"&Lsource={Lsource}" + AppendCMInfo;
                 Task.Factory.StartNew(() => { new AddLandingRepo().AddLanding(); });
                 //Task.Factory.StartNew(() => { AddClickTOCM(AppendCMInfo); });
             }
@@ -210,6 +227,8 @@ namespace PlatGame.Controllers
         //[Route("success")]
         public ActionResult Success(string CGMSISDN, string CGOperatorID, string CGStatus)
         {
+            Logs.Log(HttpContext.Request.RawUrl, "Success");
+
             if (CGStatus == "0" || CGStatus == "5")
             {
                 //Login

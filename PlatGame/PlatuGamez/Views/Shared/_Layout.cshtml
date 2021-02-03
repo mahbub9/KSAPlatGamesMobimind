@@ -102,10 +102,10 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     <ul class="nav justify-content-end">
-                        <li class="nav-item active">                           
-                                <a class="nav-link" href=@Url.Action("UnSubscribe","Home")>
-                                    <i class="fas fa-times-circle mr-1"></i> <span> Unsubsribe</span>
-                                </a>
+                        <li class="nav-item active">
+                            <a data-toggle="modal" class="nav-link" href="#confirmModal">
+                                <i class="fas fa-times-circle mr-1"></i> <span> Unsubsribe</span>
+                            </a>
                         </li>
                     </ul>
                 }
@@ -156,10 +156,10 @@
                         </a>
                     </li>
                     @*<li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Pricing", "Home")" tabindex="-1" aria-disabled="true">
-                            <span class="fa-li"><i class="fas fa-gem"></i></span>Pricing
-                        </a>
-                    </li>*@
+                            <a class="nav-link" href="@Url.Action("Pricing", "Home")" tabindex="-1" aria-disabled="true">
+                                <span class="fa-li"><i class="fas fa-gem"></i></span>Pricing
+                            </a>
+                        </li>*@
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("TnC", "Home")" tabindex="-1" aria-disabled="true">
                             <span class="fa-li"><i class="fas fa-gem"></i></span>T&C
@@ -172,10 +172,10 @@
                     </li>
 
                     @*<li class="nav-item">
-                        <a class="nav-link " href="@Url.Action("Contact", "Home")" tabindex="-1" aria-disabled="true">
-                            <span class="fa-li"><i class="fas fa-address-book"></i></span>Contact Us
-                        </a>
-                    </li>*@
+                            <a class="nav-link " href="@Url.Action("Contact", "Home")" tabindex="-1" aria-disabled="true">
+                                <span class="fa-li"><i class="fas fa-address-book"></i></span>Contact Us
+                            </a>
+                        </li>*@
                 </ul>
 
                 <!-- Select Country -->
@@ -266,12 +266,42 @@
                 <div class="modal-body">
                     <label>Please Insert your Phone Number</label>
 
-                    <input type="tel" id="txtphotnnumber" class="form-control" pattern="^\d{4}-\d{3}-\d{4}$" required  />
+                    <input type="tel" id="txtphotnnumber" class="form-control" pattern="^\d{4}-\d{3}-\d{4}$" required />
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <a class="btn btn-primary" id="btnclosepopPhone" onclick="return btnokclick()" href="@Url.Action("Login", "Account", new { login = true })">Ok</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    @* Confirm Modal *@
+
+    <div class="modal" id="confirmModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h6 class="modal-title">Are you sure you want to unsubscribe?</h6>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                @*<div class="modal-body">
+                        <label>Please Insert your Phone Number</label>
+
+                        <input type="tel" id="txtphotnnumber" class="form-control" pattern="^\d{4}-\d{3}-\d{4}$" required />
+                    </div>*@
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a class="btn btn-primary" id="btnclosepopPhone" onclick="return btnokclick()" href="@Url.Action("UnSubscribe", "Home", new { login = true })">Ok</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">cancel</button>
                 </div>
 
@@ -299,21 +329,21 @@
                                 <li><a href="@Url.Action("Faq","Home")">FAQ</a></li>
                             </ul>
                         </nav>
-                        <nav class="col">
+                        @*<nav class="col">
                             <h6>COMPANY</h6>
                             <ul class="list-unstyled">
                                 <li><a href="@Url.Action("Contact","Home")">Contact Us</a></li>
                             </ul>
-                        </nav>
-                        @*<nav class="col">
-                            <h6>MORE</h6>
-                            <ul class="list-unstyled">
-
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms and Conditions</a></li>
-
-                            </ul>
                         </nav>*@
+                        @*<nav class="col">
+                                <h6>MORE</h6>
+                                <ul class="list-unstyled">
+
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms and Conditions</a></li>
+
+                                </ul>
+                            </nav>*@
                     </div>
                 </aside>
                 <aside class="col-sm">
@@ -321,13 +351,13 @@
                     </section>
                 </aside>
             </section>
-            <section class="row">
+            <!--<section class="row">
                 <nav class="col-sm-12">
                     <ul class="list-inline global-links d-none d-sm-block">
                         <li class="list-inline-item"><a href="#">Melayu</a></li>
                         <li class="list-inline-item"><a href="#">English</a></li>
 
-                    </ul>
+                    </ul>-->
                     @*<ul class="list-inline global-links d-sm-none">
                             <li class="list-inline-item"><a href="#" class="">Global</a></li>
                             <li class="list-inline-item"><a href="#" class="">Bangladesh</a></li>
@@ -336,8 +366,8 @@
                             <li class="list-inline-item"><a href="#" class="">Cambodia</a></li>
                             <li class="list-inline-item"><a href="#" class="">India</a></li>
                         </ul>*@
-                </nav>
-            </section>
+                <!--</nav>
+            </section>-->
             <hr class="divider-line">
             <section class="row">
                 <section class="col-sm-12">
@@ -351,7 +381,7 @@
 
     <script>
         function btnokclick() {
-           
+
             var regex = new RegExp("^[0-9]*$");
             if (!regex.test($('#btnclosepopPhone').val())) {
                 $('#txtphotnnumber').addClass("errorClass")

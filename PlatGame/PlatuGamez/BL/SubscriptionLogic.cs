@@ -14,6 +14,7 @@ namespace PlatGames.BL
         public LandingClick AddLanding(CallBackModel callBackModel)
         {
             LandingClick landingClick = new LandingClick();
+            landingClick.Id = Guid.NewGuid();
             landingClick.Txid = callBackModel.txid;
             landingClick.Affid = callBackModel.affid;
             landingClick.LandingSource = callBackModel.Lsource;
@@ -38,11 +39,11 @@ namespace PlatGames.BL
             subscription.IsCampaign = string.IsNullOrEmpty(callBackModel.txid) ? false : true;
             return new SubscriptionRepo().Save(subscription);
         }
-        public Result ActiveSubscriber(Subscription subscription)
+        public Result ActiveSubscriber(Subscription subscription, int renewal)
         {
             subscription.IsSubscribed = true;
             subscription.RenewalSent = true;
-            subscription.RenewalDate = DateTime.Now;
+            subscription.RenewalDate = DateTime.Now.AddDays(renewal);
             subscription.LastCharegDate = DateTime.Now;
             return new SubscriptionRepo().Save(subscription);
         }
@@ -68,6 +69,7 @@ namespace PlatGames.BL
             subscriptionHistory.SubscribedBy = subscription.SubscribedBy;
             subscriptionHistory.SubscriptionDate = subscription.SubscriptionDate;
             subscriptionHistory.SubscriptionId = subscription.Id;
+            subscriptionHistory.CreatedDate = DateTime.Now;
             subscriptionHistory.TelcoId = subscription.TelcoId;
             subscriptionHistory.TerminatedBy = subscription.TerminatedBy;
             subscriptionHistory.TerminationDate = subscription.TerminationDate;
@@ -121,6 +123,11 @@ namespace PlatGames.BL
             mT.Status = Mtresult ? "Success" : "faile";
             mT.SubscriberId = subscription.Id;
             return new MTRepo().Insert(mT);
+        }
+
+        public int GetDailySubscriberNumber()
+        {
+            return new TransactionsRepo().GetDailySubscription();
         }
     }
 }

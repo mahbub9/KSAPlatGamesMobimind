@@ -112,8 +112,11 @@ namespace PlatGame.Api
                             int renewal = (requestModel.ChannelID == 12029 || requestModel.ChannelID == 12030) ? 30 : 1;
                             subscriptionLogic.InsertSubscrbtionHistory(subscription);
                             Result transresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
-                            ForestInterActive.CampaignManager.ScrabberFireBack(subscription.Txid, subscription.Msisdn, "TTusr", telco.CMId.Value, "", renewal);
-                            ForestInterActive.CampaignManager.CampaignSubscitpion(subscription.Txid, (transresult.Data as Transaction).Id.ToString(), isfirst, requestModel.Price.Value);
+                            string firebackResponse = ForestInterActive.CampaignManager.ScrabberFireBack(subscription.Txid, subscription.Msisdn, "TTusr", telco.CMId.Value, "", renewal);
+                            Logs.Log("Fireback Response:" + firebackResponse, "CallBack");
+
+                            string cmSubResponse = ForestInterActive.CampaignManager.CampaignSubscitpion(subscription.Txid, (transresult.Data as Transaction).Id.ToString(), isfirst, requestModel.Price.Value);
+                            Logs.Log("CM Sub Response:" + cmSubResponse, "CallBack");
                         }
                         else
                         {
@@ -178,7 +181,8 @@ namespace PlatGame.Api
                         Result renewalresult = new SubscriptionLogic().InsertTransaction(subscription, requestModel, transactionType.ID, telcoid);
                         if (renewalresult.State == ResultState.Success)
                         {
-                            new SubscriptionLogic().ActiveSubscriber(subscription);
+                            int renewal = (requestModel.ChannelID == 12029 || requestModel.ChannelID == 12030) ? 30 : 1;
+                            new SubscriptionLogic().ActiveSubscriber(subscription, renewal);
                             ForestInterActive.CampaignManager.CampaignRenewal(subscription.Txid, (renewalresult.Data as PlatGames.DAL.Transaction).Id.ToString(), requestModel.Price.HasValue ? requestModel.Price.Value : 0);
                         }
                         return "OK";
